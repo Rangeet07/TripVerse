@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { useEffect } from 'react'
 
 import { FaTimes } from 'react-icons/fa'
 
@@ -27,6 +28,20 @@ const [formData,setFormData] = useState({
   price:tour?.price || ''
 })
 
+useEffect(()=>{
+
+  if(isOpen){
+    document.body.style.overflow='hidden'
+  }else{
+    document.body.style.overflow='auto'
+  }
+
+  return ()=>{
+    document.body.style.overflow='auto'
+  }
+
+},[isOpen])
+
   if(!isOpen) return null
 
   const handleChange = (e)=>{
@@ -47,10 +62,15 @@ const [formData,setFormData] = useState({
   }
 
   return (
-    <div className="modal-overlay">
+            <div
+        className="modal-overlay"
+        onClick={onClose}
+             >
 
-      <div className="booking-modal">
-
+            <div
+            className="booking-modal"
+            onClick={(e)=>e.stopPropagation()}
+            >
         <div className="modal-header">
 
           <h2>Book Tour</h2>
@@ -65,16 +85,7 @@ const [formData,setFormData] = useState({
         <h3>{tour?.title}</h3>
         <div className="selected-tour-info">
 
-            <p>
-                <strong>Location:</strong> {tour?.location}
-            </p>
-
-            <p>
-                <strong>Price:</strong> ${tour?.price}
-            </p>
-            
-
-            </div>
+           
             <div className="booking-summary">
 
                 <h4>Booking Summary</h4>
@@ -96,7 +107,7 @@ const [formData,setFormData] = useState({
 
                 </div>
 
-            
+             </div>
 
         <form onSubmit={handleSubmit}>
 

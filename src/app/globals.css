@@ -49,3 +49,10 @@ img{
   margin:0 auto 50px;
   line-height:1.7;
 }
+
+input,
+button,
+textarea,
+select{
+  font:inherit;
+}
