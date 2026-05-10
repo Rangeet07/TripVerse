@@ -14,12 +14,18 @@ export default function BookingModal({
   tour
 }) {
 
-  const [formData,setFormData] = useState({
-    name:'',
-    email:'',
-    phone:'',
-    travelers:1
-  })
+const [formData,setFormData] = useState({
+  name:'',
+  email:'',
+  phone:'',
+  travelers:1,
+  startDate:'',
+  endDate:'',
+
+  tourTitle:tour?.title || '',
+  location:tour?.location || '',
+  price:tour?.price || ''
+})
 
   if(!isOpen) return null
 
@@ -57,6 +63,40 @@ export default function BookingModal({
         </div>
 
         <h3>{tour?.title}</h3>
+        <div className="selected-tour-info">
+
+            <p>
+                <strong>Location:</strong> {tour?.location}
+            </p>
+
+            <p>
+                <strong>Price:</strong> ${tour?.price}
+            </p>
+            
+
+            </div>
+            <div className="booking-summary">
+
+                <h4>Booking Summary</h4>
+
+                <div className="summary-row">
+                    <span>Destination</span>
+                    <span>{tour?.location}</span>
+                </div>
+
+                <div className="summary-row">
+                    <span>Package</span>
+                    <span>{tour?.title}</span>
+                </div>
+
+                <div className="summary-row">
+                    <span>Price</span>
+                    <span>${tour?.price}</span>
+                </div>
+
+                </div>
+
+            
 
         <form onSubmit={handleSubmit}>
 
@@ -83,7 +123,19 @@ export default function BookingModal({
             onChange={handleChange}
             required
           />
+                <input
+                type="date"
+                name="startDate"
+                onChange={handleChange}
+                required
+                />
 
+                <input
+                type="date"
+                name="endDate"
+                onChange={handleChange}
+                required
+                />
           <input
             type="number"
             placeholder="Travelers"

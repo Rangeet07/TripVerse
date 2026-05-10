@@ -21,13 +21,13 @@ export default function TourCard({
 
   const [openModal,setOpenModal] = useState(false)
 
-  const tour = {
-    title,
-    image,
-    price,
-    location
-  }
-
+const tour = {
+  title,
+  image,
+  price,
+  location,
+  id:crypto.randomUUID()
+}
   return (
     <>
       <div className="tour-card">
