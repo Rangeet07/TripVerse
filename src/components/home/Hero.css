@@ -1,0 +1,91 @@
+.hero{
+  width:100%;
+  min-height:92vh;
+
+  background:
+  linear-gradient(
+    rgba(0,0,0,0.45),
+    rgba(0,0,0,0.45)
+  ),
+  url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1600');
+
+  background-position:center;
+  background-size:cover;
+
+  display:flex;
+  align-items:center;
+}
+
+.hero-content{
+  width:100%;
+  max-width:800px;
+
+  padding:0 5%;
+
+  color:white;
+}
+
+.hero-content h1{
+  font-size:42px;
+  line-height:1.2;
+  margin-bottom:25px;
+}
+
+.hero-content p{
+  font-size:18px;
+  line-height:1.8;
+  margin-bottom:35px;
+
+  color:#eee;
+}
+
+.hero-buttons{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.primary-btn,
+.secondary-btn{
+  padding:15px 30px;
+
+  border:none;
+  border-radius:40px;
+
+  font-size:16px;
+  cursor:pointer;
+
+  transition:0.3s;
+}
+
+.primary-btn{
+  background:#00b894;
+  color:white;
+}
+
+.primary-btn:hover{
+  background:#019875;
+}
+
+.secondary-btn{
+  background:white;
+  color:black;
+}
+
+.secondary-btn:hover{
+  background:#ddd;
+}
+
+/* TABLET */
+
+@media(min-width:768px){
+
+  .hero-content h1{
+    font-size:68px;
+  }
+
+  .hero-content p{
+    font-size:20px;
+  }
+
+}

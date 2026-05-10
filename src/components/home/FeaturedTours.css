@@ -1,0 +1,39 @@
+.featured{
+  padding:90px 5%;
+}
+
+.featured h2{
+  text-align:center;
+  font-size:40px;
+  margin-bottom:15px;
+}
+
+.tour-grid{
+  margin-top:50px;
+
+  display:grid;
+  grid-template-columns:1fr;
+  gap:30px;
+
+  justify-items:center;
+}
+
+/* TABLET */
+
+@media(min-width:768px){
+
+  .tour-grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+/* DESKTOP */
+
+@media(min-width:1200px){
+
+  .tour-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+}
