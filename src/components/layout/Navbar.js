@@ -18,25 +18,43 @@ export default function Navbar() {
 
       <ul className={menuOpen ? 'nav-links active' : 'nav-links'}>
 
-        <li>Home</li>
-        <li>Tours</li>
-      <li>
-          <Link href="/">Home</Link>
-        </li>
+  <li>
+    <Link href="/">
+      Home
+    </Link>
+  </li>
 
-        <li>
-          <Link href="/destinations">
-            Destinations
-          </Link>
-        </li>
-        <li>
-          <button className="nav-btn">
-            Login
-          </button>
-        </li>
+  <li>
+    <Link href="/tours">
+      Tours
+    </Link>
+  </li>
 
-      </ul>
+  <li>
+    <Link href="/destinations">
+      Destinations
+    </Link>
+  </li>
 
+  <li>
+    <Link href="/about">
+      About
+    </Link>
+  </li>
+
+  <li>
+    <Link href="/contact">
+      Contact
+    </Link>
+  </li>
+
+  <li>
+    <button className="nav-btn">
+      Login
+    </button>
+  </li>
+
+</ul>
       <div
         className="menu-icon"
         onClick={()=>setMenuOpen(!menuOpen)}
