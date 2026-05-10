@@ -54,11 +54,61 @@ useEffect(()=>{
   const handleSubmit = (e)=>{
     e.preventDefault()
 
-    console.log(formData)
+        try{
 
-    alert('Booking Submitted!')
+          const bookingData = {
 
-    onClose()
+            customerName:formData.name,
+
+            email:formData.email,
+
+            phone:formData.phone,
+
+            travelers:formData.travelers,
+
+            startDate:formData.startDate,
+
+            endDate:formData.endDate,
+
+            tourTitle:tour?.title,
+
+            location:tour?.location,
+
+            price:tour?.price
+
+          }
+
+          const res =  fetch('/api/bookings',{
+
+            method:'POST',
+
+            headers:{
+              'Content-Type':'application/json'
+            },
+
+            body:JSON.stringify(bookingData)
+
+          })
+
+          const data =  res.json()
+
+          if(data.success){
+
+            alert('Booking Submitted Successfully')
+
+            onClose()
+
+          }else{
+
+            alert(data.message)
+
+          }
+
+        }catch(error){
+
+          console.log(error)
+
+        }
   }
 
   return (
