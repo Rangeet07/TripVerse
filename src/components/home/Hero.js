@@ -1,5 +1,6 @@
 import './Hero.css'
 import Button from '../shared/Button'
+import Link from 'next/link'
 
 export default function Hero() {
   return (
@@ -20,14 +21,16 @@ export default function Hero() {
 
           <div className="hero-buttons">
 
-            <Button
-              text="Explore Tours"
-            />
+            <Link href="/tours">
+              <Button text="Explore Tours" />
+            </Link>
 
-            <Button
-              text="Learn More"
-              type="secondary"
-            />
+            <Link href="/about">
+              <Button
+                text="Learn More"
+                type="secondary"
+              />
+            </Link>
 
           </div>
 
