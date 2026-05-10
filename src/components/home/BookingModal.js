@@ -89,20 +89,19 @@ useEffect(()=>{
             <div className="booking-summary">
 
                 <h4>Booking Summary</h4>
-
                 <div className="summary-row">
-                    <span>Destination</span>
-                    <span>{tour?.location}</span>
+                <p>Destination</p>
+                <strong>{tour?.location}</strong>
                 </div>
 
                 <div className="summary-row">
-                    <span>Package</span>
-                    <span>{tour?.title}</span>
+                    <p>Package</p>
+                    <strong>{tour?.title}</strong>
                 </div>
 
                 <div className="summary-row">
-                    <span>Price</span>
-                    <span>${tour?.price}</span>
+                    <p>Price</p>
+                    <strong>${tour?.price}</strong>
                 </div>
 
                 </div>
@@ -134,19 +133,35 @@ useEffect(()=>{
             onChange={handleChange}
             required
           />
-                <input
-                type="date"
-                name="startDate"
-                onChange={handleChange}
-                required
-                />
+                <div className="date-group">
+
+                <label>
+                    Starting Date
+                </label>
 
                 <input
-                type="date"
-                name="endDate"
-                onChange={handleChange}
-                required
+                    type="date"
+                    name="startDate"
+                    onChange={handleChange}
+                    required
                 />
+
+                </div>
+
+                <div className="date-group">
+
+                <label>
+                    Ending Date
+                </label>
+
+                <input
+                    type="date"
+                    name="endDate"
+                    onChange={handleChange}
+                    required
+                />
+
+                </div>
           <input
             type="number"
             placeholder="Travelers"
