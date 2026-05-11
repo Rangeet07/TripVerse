@@ -6,44 +6,89 @@ import {
   FaTachometerAlt,
   FaSuitcase,
   FaClipboardList,
-  FaPlus
+  FaPlus,
+  FaBars,
+  FaTimes
 } from 'react-icons/fa'
+
+import { useState } from 'react'
 
 import './AdminSidebar.css'
 
 export default function AdminSidebar(){
 
+  const [isOpen,setIsOpen] =
+  useState(false)
+
   return (
-    <aside className="admin-sidebar">
+    <>
 
-      <h2>
-        Travel<span>Go</span>
-      </h2>
+      <div className="mobile-topbar">
 
-      <nav>
+        <h2>
+          Travel<span>Go</span>
+        </h2>
 
-        <Link href="/admin">
-          <FaTachometerAlt />
-          Dashboard
-        </Link>
+        <button
+          onClick={()=>
+            setIsOpen(!isOpen)
+          }
+        >
 
-        <Link href="/admin/tours">
-          <FaSuitcase />
-          Tours
-        </Link>
+          {
+            isOpen
+            ?
+            <FaTimes />
+            :
+            <FaBars />
+          }
 
-        <Link href="/admin/bookings">
-          <FaClipboardList />
-          Bookings
-        </Link>
+        </button>
 
-        <Link href="/admin/add-tour">
-          <FaPlus />
-          Add Tour
-        </Link>
+      </div>
 
-      </nav>
+      <aside
+        className={
+          isOpen
+          ?
+          'admin-sidebar active'
+          :
+          'admin-sidebar'
+        }
+      >
 
-    </aside>
+        <h2 className="desktop-logo">
+
+          Travel<span>Go</span>
+
+        </h2>
+
+        <nav>
+
+          <Link href="/admin">
+            <FaTachometerAlt />
+            Dashboard
+          </Link>
+
+          <Link href="/admin/tours">
+            <FaSuitcase />
+            Tours
+          </Link>
+
+          <Link href="/admin/bookings">
+            <FaClipboardList />
+            Bookings
+          </Link>
+
+          <Link href="/admin/add-tour">
+            <FaPlus />
+            Add Tour
+          </Link>
+
+        </nav>
+
+      </aside>
+
+    </>
   )
 }

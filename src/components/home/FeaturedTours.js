@@ -1,30 +1,26 @@
 import TourCard from '../cards/TourCard'
 import './FeaturedTours.css'
 import FadeUp from '../shared/FadeUp'
-export default function FeaturedTours() {
 
-  const tours = [
-    {
-      title:'Maldives Escape',
-      image:'https://images.unsplash.com/photo-1573843981267-be1999ff37cd?q=80&w=1200',
-      price:1200,
-      location:'Maldives'
-    },
+async function getTours(){
 
+  const res = await fetch(
+    'http://localhost:3000/api/tours',
     {
-      title:'Paris Adventure',
-      image:'https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1200',
-      price:1500,
-      location:'France'
-    },
-
-    {
-      title:'Bali Retreat',
-      image:'https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=1200',
-      price:900,
-      location:'Indonesia'
+      cache:'no-store'
     }
-  ]
+  )
+
+  return res.json()
+}
+
+
+
+export default async function FeaturedTours() {
+
+    const data = await getTours()
+
+  const tours = data.tours || []
 
   return (
     <section className="featured">

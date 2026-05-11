@@ -1,3 +1,4 @@
+import DeleteBookingButton from "../DeleteBookingButton"
 async function getBookings(){
 
   const res = await fetch(
@@ -90,6 +91,18 @@ export default async function AdminBookingsPage(){
               <h4>
                 ${booking.price}
               </h4>
+
+              <div
+                style={{
+                    marginTop:'20px'
+                }}
+                >
+
+                <DeleteBookingButton
+                    id={booking._id}
+                />
+
+                </div>
 
             </div>
 
