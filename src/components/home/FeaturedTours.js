@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import TourCard from '../cards/TourCard'
 import './FeaturedTours.css'
 import FadeUp from '../shared/FadeUp'

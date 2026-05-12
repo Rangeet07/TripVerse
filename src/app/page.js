@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic'
+
+
 import Navbar from '@/components/layout/Navbar'
 import Hero from '@/components/home/Hero'
 import FeaturedTours from '@/components/home/FeaturedTours'

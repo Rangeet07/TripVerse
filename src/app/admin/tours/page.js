@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import connectDB from "@/lib/mongodb"
 import DeleteTourButton from "../DeleteTourButton"
 import Tour from "@/models/Tour"

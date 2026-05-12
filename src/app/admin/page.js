@@ -1,5 +1,5 @@
 // async function getDashboardData(){
-
+export const dynamic = 'force-dynamic'
 import connectDB from "@/lib/mongodb"
 import Booking from "@/models/Booking"
 import Tour from "@/models/Tour"
