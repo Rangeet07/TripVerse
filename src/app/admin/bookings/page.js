@@ -15,7 +15,7 @@ import Booking from "@/models/Booking"
 // }
 
 export default async function AdminBookingsPage(){
-
+  await connectDB()
     const bookings =
   await Booking.find()
   .sort({createdAt:-1})
