@@ -1,31 +1,43 @@
-async function getDashboardData(){
+// async function getDashboardData(){
 
-  const toursRes = await fetch(
-    'http://localhost:3000/api/tours',
-    {
-      cache:'no-store'
-    }
-  )
+import connectDB from "@/lib/mongodb"
+import Booking from "@/models/Booking"
+import Tour from "@/models/Tour"
 
-  const bookingsRes = await fetch(
-    'http://localhost:3000/api/bookings',
-    {
-      cache:'no-store'
-    }
-  )
+//   const toursRes = await fetch(
+//     'http://localhost:3000/api/tours',
+//     {
+//       cache:'no-store'
+//     }
+//   )
 
-  const toursData = await toursRes.json()
-  const bookingsData = await bookingsRes.json()
+//   const bookingsRes = await fetch(
+//     'http://localhost:3000/api/bookings',
+//     {
+//       cache:'no-store'
+//     }
+//   )
 
-  return {
-    tours:toursData.tours || [],
-    bookings:bookingsData.bookings || []
-  }
-}
+//   const toursData = await toursRes.json()
+//   const bookingsData = await bookingsRes.json()
+
+//   return {
+//     tours:toursData.tours || [],
+//     bookings:bookingsData.bookings || []
+//   }
+// }
+
+
 
 export default async function AdminDashboard(){
 
-  const data = await getDashboardData()
+  // const data = await getDashboardData()
+
+  const tours =
+  await Tour.find()
+
+  const bookings =
+  await Booking.find()
 
   return (
     <div>
@@ -45,7 +57,7 @@ export default async function AdminDashboard(){
           <h3>Total Tours</h3>
 
           <p>
-            {data.tours.length}
+            {tours.length}
           </p>
 
         </div>
@@ -55,7 +67,7 @@ export default async function AdminDashboard(){
           <h3>Total Bookings</h3>
 
           <p>
-            {data.bookings.length}
+            {bookings.length}
           </p>
 
         </div>
@@ -71,7 +83,7 @@ export default async function AdminDashboard(){
         <div className="booking-list">
 
           {
-            data.bookings
+            bookings
             .slice(0,5)
             .map((booking)=>(
 

@@ -1,21 +1,29 @@
+import connectDB from "@/lib/mongodb"
 import DeleteBookingButton from "../DeleteBookingButton"
-async function getBookings(){
+import Booking from "@/models/Booking"
 
-  const res = await fetch(
-    'http://localhost:3000/api/bookings',
-    {
-      cache:'no-store'
-    }
-  )
+// async function getBookings(){
 
-  return res.json()
-}
+//   const res = await fetch(
+//     'http://localhost:3000/api/bookings',
+//     {
+//       cache:'no-store'
+//     }
+//   )
+
+//   return res.json()
+// }
 
 export default async function AdminBookingsPage(){
 
-  const data = await getBookings()
+    const bookings =
+  await Booking.find()
+  .sort({createdAt:-1})
 
-  const bookings = data.bookings || []
+
+  // const data = await getBookings()
+
+  // const bookings = data.bookings || []
 
   return (
     <div>
@@ -34,7 +42,7 @@ export default async function AdminBookingsPage(){
           bookings.map((booking)=>(
 
             <div
-              key={booking._id}
+              key={booking._id.toString()}
               className="booking-card"
             >
 
@@ -99,7 +107,7 @@ export default async function AdminBookingsPage(){
                 >
 
                 <DeleteBookingButton
-                    id={booking._id}
+                    id={booking._id.toString()}
                 />
 
                 </div>

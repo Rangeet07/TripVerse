@@ -1,26 +1,35 @@
 import TourCard from '../cards/TourCard'
 import './FeaturedTours.css'
 import FadeUp from '../shared/FadeUp'
+import connectDB from '@/lib/mongodb'
+import Tour from '@/models/Tour'
 
-async function getTours(){
 
-  const res = await fetch(
-    'http://localhost:3000/api/tours',
-    {
-      cache:'no-store'
-    }
-  )
 
-  return res.json()
-}
+// async function getTours(){
+
+//   const res = await fetch(
+//     'http://localhost:3000/api/tours',
+//     {
+//       cache:'no-store'
+//     }
+//   )
+
+//   return res.json()
+// }
 
 
 
 export default async function FeaturedTours() {
 
-    const data = await getTours()
+  //   const data = await getTours()
 
-  const tours = data.tours || []
+  // const tours = data.tours || []
+
+  
+    await connectDB()
+  
+    const tours = await Tour.find()
 
   return (
     <section className="featured">
