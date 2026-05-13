@@ -11,6 +11,7 @@ import BookingModal from '../home/BookingModal'
 import Button from '../shared/Button'
 
 import './TourCard.css'
+import Link from 'next/link'
 
 export default function TourCard({
   title,
@@ -30,8 +31,10 @@ const tour = {
 }
   return (
     <>
-      <div className="tour-card">
 
+
+      <div className="tour-card">
+    <Link href={`/tours/${tour._id}`}>
         <div className="tour-image">
 
           <Image
@@ -44,6 +47,8 @@ const tour = {
           />
 
         </div>
+
+        </Link>
 
         <div className="tour-content">
 
