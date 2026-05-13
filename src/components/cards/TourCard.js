@@ -34,7 +34,7 @@ const tour = {
 
 
       <div className="tour-card">
-    <Link href={`/tours/${tour._id}`}>
+
         <div className="tour-image">
 
           <Image
@@ -48,7 +48,6 @@ const tour = {
 
         </div>
 
-        </Link>
 
         <div className="tour-content">
 
