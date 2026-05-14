@@ -7,6 +7,8 @@ import connectDB from '@/lib/mongodb'
 import Tour from '@/models/Tour'
 
 import './tour-details.css'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
 
 async function getTour(id){
 
@@ -42,6 +44,8 @@ export default async function TourDetailsPage({
   }
 
   return (
+    <main>
+      <Navbar />
     <div className="tour-details-page">
 
       <div className="tour-hero">
@@ -165,5 +169,7 @@ export default async function TourDetailsPage({
       </section>
 
     </div>
+    <Footer />
+    </main>
   )
 }

@@ -51,15 +51,21 @@ export default async function FeaturedTours() {
         <div className="tour-grid">
 
           {
-            tours.map((tour,index)=>(
+            tours.map((tour, _id)=> {
+              console.log(tour._id);
+              
+              return (
+            
               <TourCard
-                key={index}
+                key={tour._id}
+                tour={tour}
                 title={tour.title}
                 image={tour.image}
                 price={tour.price}
                 location={tour.location}
               />
-            ))
+            )
+})
           }
 
         </div>

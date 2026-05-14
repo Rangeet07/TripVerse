@@ -14,6 +14,7 @@ import './TourCard.css'
 import Link from 'next/link'
 
 export default function TourCard({
+  tour,
   title,
   image,
   price,
@@ -22,19 +23,19 @@ export default function TourCard({
 
   const [openModal,setOpenModal] = useState(false)
 
-const tour = {
-  title,
-  image,
-  price,
-  location,
-  id:crypto.randomUUID()
-}
+// const tour = {
+//   title,
+//   image,
+//   price,
+//   location,
+//   id:crypto.randomUUID()
+// }
   return (
     <>
 
 
       <div className="tour-card">
-
+<Link href={`/tours/${tour._id}`}>
         <div className="tour-image">
 
           <Image
@@ -47,6 +48,8 @@ const tour = {
           />
 
         </div>
+
+        </Link>
 
 
         <div className="tour-content">
