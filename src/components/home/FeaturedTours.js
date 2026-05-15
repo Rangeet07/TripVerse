@@ -31,7 +31,13 @@ export default async function FeaturedTours() {
   
     await connectDB()
   
-    const tours = await Tour.find()
+   const toursRaw =
+  await Tour.find().lean()
+
+  const tours =
+  JSON.parse(
+    JSON.stringify(toursRaw)
+  )
 
   return (
     <section className="featured">

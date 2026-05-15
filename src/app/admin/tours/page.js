@@ -24,8 +24,13 @@ export default async function AdminToursPage(){
   // const tours = data.tours || []
 
   await connectDB()
+ const toursRaw =
+  await Tour.find().lean()
 
-  const tours = await Tour.find()
+  const tours =
+  JSON.parse(
+    JSON.stringify(toursRaw)
+  )
   return (
     <div>
 
