@@ -9,7 +9,7 @@ import Button from '../shared/Button'
 
 import './BookingModal.css'
 
-export default function BookingModal({
+export default  function BookingModal({
   isOpen,
   onClose,
   tour
@@ -23,6 +23,7 @@ const [formData,setFormData] = useState({
   startDate:'',
   endDate:'',
 
+  tourId:tour?._id,
   tourTitle:tour?.title || '',
   location:tour?.location || '',
   price:tour?.price || ''
@@ -51,12 +52,13 @@ useEffect(()=>{
     })
   }
 
-  const handleSubmit = (e)=>{
+  const  handleSubmit = async (e)=>{
     e.preventDefault()
 
         try{
 
           const bookingData = {
+            tourId:tour?._id,
 
             customerName:formData.name,
 
@@ -78,7 +80,7 @@ useEffect(()=>{
 
           }
 
-          const res =  fetch('/api/bookings',{
+          const res = await fetch('/api/bookings',{
 
             method:'POST',
 
@@ -90,7 +92,7 @@ useEffect(()=>{
 
           })
 
-          const data =  res.json()
+          const data = await res.json()
 
           if(data.success){
 
@@ -164,6 +166,7 @@ useEffect(()=>{
             type="text"
             placeholder="Full Name"
             name="name"
+            value={formData.name}
             onChange={handleChange}
             required
           />
@@ -172,6 +175,7 @@ useEffect(()=>{
             type="email"
             placeholder="Email Address"
             name="email"
+             value={formData.email}
             onChange={handleChange}
             required
           />
@@ -180,6 +184,7 @@ useEffect(()=>{
             type="tel"
             placeholder="Phone Number"
             name="phone"
+            value={formData.phone}
             onChange={handleChange}
             required
           />
@@ -192,6 +197,7 @@ useEffect(()=>{
                 <input
                     type="date"
                     name="startDate"
+                    value={formData.startDate}
                     onChange={handleChange}
                     required
                 />
@@ -207,6 +213,7 @@ useEffect(()=>{
                 <input
                     type="date"
                     name="endDate"
+                    value={formData.endDate}
                     onChange={handleChange}
                     required
                 />
@@ -217,6 +224,7 @@ useEffect(()=>{
             placeholder="Travelers"
             name="travelers"
             min="1"
+            value={formData.travelers}
             onChange={handleChange}
             required
           />
