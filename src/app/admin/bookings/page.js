@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import connectDB from "@/lib/mongodb"
 import DeleteBookingButton from "../DeleteBookingButton"
 import Booking from "@/models/Booking"
