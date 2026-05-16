@@ -9,6 +9,9 @@ import Tour from '@/models/Tour'
 import './tour-details.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import TourDetailsClient from '@/components/tours/TourDetailsClient'
+
+
 
 async function getTour(id){
 
@@ -142,25 +145,9 @@ export default async function TourDetailsPage({
 
             </div>
 
-            <div className="tour-booking-card">
-
-              <h3>
-                Book This Tour
-              </h3>
-
-              <h2>
-                ${tour.price}
-              </h2>
-
-              <p>
-                Per Person
-              </p>
-
-              <button>
-                Book Now
-              </button>
-
-            </div>
+<TourDetailsClient
+  tour={tour}
+/>
 
           </div>
 
