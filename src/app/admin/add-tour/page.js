@@ -13,6 +13,8 @@ export default function AddTourPage(){
     duration:''
   })
 
+    const [image,setImage] = useState(null)
+
   const handleChange = (e)=>{
 
     setFormData({
@@ -21,42 +23,112 @@ export default function AddTourPage(){
     })
 
   }
-
 const handleSubmit = async(e)=>{
 
   e.preventDefault()
 
   try{
 
-    const res = await fetch('/api/tours',{
+    if(!image){
+
+      alert('Please select an image')
+
+      return
+
+    }
+
+    /*
+      STEP 1
+      Upload image
+    */
+
+    const imageFormData =
+    new FormData()
+
+    imageFormData.append(
+      'image',
+      image
+    )
+
+    const uploadRes =
+    await fetch('/api/upload',{
 
       method:'POST',
 
-      headers:{
-        'Content-Type':'application/json'
-      },
-
-      body:JSON.stringify({
-        ...formData,
-        price:Number(formData.price)
-      })
+      body:imageFormData
 
     })
 
-    const data = await res.json()
+    const uploadData =
+    await uploadRes.json()
+
+    if(!uploadData.success){
+
+      alert(
+        'Image upload failed'
+      )
+
+      return
+
+    }
+
+    /*
+      STEP 2
+      Save tour with image URL
+    */
+
+    const tourData = {
+
+      ...formData,
+
+      image:
+      uploadData.imageUrl,
+
+      price:Number(
+        formData.price
+      )
+
+    }
+
+    const res = await fetch(
+      '/api/tours',
+      {
+
+        method:'POST',
+
+        headers:{
+          'Content-Type':
+          'application/json'
+        },
+
+        body:JSON.stringify(
+          tourData
+        )
+
+      }
+    )
+
+    const data =
+    await res.json()
 
     if(data.success){
 
-      alert('Tour Added Successfully')
+      alert(
+        'Tour Added Successfully'
+      )
 
       setFormData({
+
         title:'',
         location:'',
         description:'',
         image:'',
         price:'',
         duration:''
+
       })
+
+      setImage(null)
 
     }else{
 
@@ -68,11 +140,14 @@ const handleSubmit = async(e)=>{
 
     console.log(error)
 
-    alert('Something went wrong')
+    alert(
+      'Something went wrong'
+    )
 
   }
 
 }
+
   return (
     <div>
 
@@ -116,13 +191,32 @@ const handleSubmit = async(e)=>{
         />
 
         <input
-          type="text"
-          placeholder="Image URL"
-          name="image"
-          value={formData.image}
-          onChange={handleChange}
+          type="file"
+          accept="image/*"
+          onChange={(e)=>
+            setImage(
+              e.target.files[0]
+            )
+          }
           required
         />
+        {
+  image && (
+
+      <img
+        src={URL.createObjectURL(image)}
+        alt="preview"
+        style={{
+          width:'100%',
+          maxHeight:'250px',
+          objectFit:'cover',
+          borderRadius:'12px',
+          marginBottom:'20px'
+        }}
+      />
+
+
+    )}
 
         <input
           type="number"
