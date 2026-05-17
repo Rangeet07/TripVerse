@@ -4,16 +4,15 @@ import { useState } from 'react'
 
 export default function AddTourPage(){
 
-  const [formData,setFormData] = useState({
-    title:'',
-    location:'',
-    description:'',
-    image:'',
-    price:'',
-    duration:''
-  })
+    const [formData,setFormData] = useState({
+      title:'',
+      location:'',
+      description:'',
+      price:'',
+      duration:''
+    })
 
-    const [image,setImage] = useState(null)
+    const [images,setImages] = useState([])
 
   const handleChange = (e)=>{
 
@@ -29,7 +28,7 @@ const handleSubmit = async(e)=>{
 
   try{
 
-    if(!image){
+    if(images.length===0){
 
       alert('Please select an image')
 
@@ -42,35 +41,39 @@ const handleSubmit = async(e)=>{
       Upload image
     */
 
-    const imageFormData =
-    new FormData()
+const uploadedImages = []
 
-    imageFormData.append(
-      'image',
-      image
+for(const image of images){
+
+  const imageFormData =
+  new FormData()
+
+  imageFormData.append(
+    'image',
+    image
+  )
+
+  const uploadRes =
+  await fetch('/api/upload',{
+
+    method:'POST',
+
+    body:imageFormData
+
+  })
+
+  const uploadData =
+  await uploadRes.json()
+
+  if(uploadData.success){
+
+    uploadedImages.push(
+      uploadData.imageUrl
     )
 
-    const uploadRes =
-    await fetch('/api/upload',{
+  }
 
-      method:'POST',
-
-      body:imageFormData
-
-    })
-
-    const uploadData =
-    await uploadRes.json()
-
-    if(!uploadData.success){
-
-      alert(
-        'Image upload failed'
-      )
-
-      return
-
-    }
+}
 
     /*
       STEP 2
@@ -81,8 +84,7 @@ const handleSubmit = async(e)=>{
 
       ...formData,
 
-      image:
-      uploadData.imageUrl,
+      images:uploadedImages,
 
       price:Number(
         formData.price
@@ -122,13 +124,12 @@ const handleSubmit = async(e)=>{
         title:'',
         location:'',
         description:'',
-        image:'',
         price:'',
         duration:''
 
       })
 
-      setImage(null)
+      setImages([])
 
     }else{
 
@@ -193,31 +194,45 @@ const handleSubmit = async(e)=>{
         <input
           type="file"
           accept="image/*"
+          multiple
           onChange={(e)=>
-            setImage(
-              e.target.files[0]
+            setImages(
+              Array.from(
+                e.target.files
+              )
             )
           }
           required
         />
+        <div
+          style={{
+            display:'grid',
+            gridTemplateColumns:
+            'repeat(auto-fit,minmax(120px,1fr))',
+            gap:'12px',
+            marginBottom:'20px'
+          }}
+        >
+
         {
-  image && (
+          images.map((image,index)=>(
 
-      <img
-        src={URL.createObjectURL(image)}
-        alt="preview"
-        style={{
-          width:'100%',
-          maxHeight:'250px',
-          objectFit:'cover',
-          borderRadius:'12px',
-          marginBottom:'20px'
-        }}
-      />
+            <img
+              key={index}
+              src={URL.createObjectURL(image)}
+              alt="preview"
+              style={{
+                width:'100%',
+                height:'120px',
+                objectFit:'cover',
+                borderRadius:'12px'
+              }}
+            />
 
+          ))
+        }
 
-    )}
-
+        </div>
         <input
           type="number"
           placeholder="Price"

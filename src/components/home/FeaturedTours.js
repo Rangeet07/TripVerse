@@ -66,7 +66,7 @@ export default async function FeaturedTours() {
                 key={tour._id}
                 tour={tour}
                 title={tour.title}
-                image={tour.image}
+                image={tour.images?.[0]}
                 price={tour.price}
                 location={tour.location}
               />

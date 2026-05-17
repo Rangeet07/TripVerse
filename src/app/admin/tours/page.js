@@ -51,7 +51,7 @@ export default async function AdminToursPage(){
             >
 
               <img
-                src={tour.image}
+                src={tour.images?.[0]}
                 alt={tour.title}
               />
 

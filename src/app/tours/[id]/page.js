@@ -54,7 +54,7 @@ export default async function TourDetailsPage({
       <div className="tour-hero">
 
         <Image
-          src={tour.image}
+          src={tour.images?.[0]}
           alt={tour.title}
           fill
           priority
@@ -76,6 +76,31 @@ export default async function TourDetailsPage({
           </div>
 
         </div>
+
+      </div>
+
+      <div className="tour-gallery">
+
+        {
+          tour.images?.map(
+            (image,index)=>(
+
+            <div
+              key={index}
+              className="gallery-image"
+            >
+
+              <Image
+                src={image}
+                alt={tour.title}
+                width={400}
+                height={250}
+              />
+
+            </div>
+
+          ))
+        }
 
       </div>
 
