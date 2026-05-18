@@ -12,10 +12,14 @@ export default function Navbar() {
   return (
     <nav className="navbar">
 
-      <h2 className="logo">
-        Travel<span>Go</span>
-      </h2>
+    <Link
+      href="/"
+      className="logo"
+    >
 
+      Travel<span>Go</span>
+
+    </Link>
       <ul className={menuOpen ? 'nav-links active' : 'nav-links'}>
 
   <li>
