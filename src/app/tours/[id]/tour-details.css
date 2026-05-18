@@ -179,7 +179,7 @@
   border-radius:20px;
 }
 .tour-details-content{
-  margin-top: -140px;
+  margin-top:-80px;
   position:relative;
   z-index:5;
 }
