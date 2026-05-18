@@ -178,6 +178,23 @@
 
   border-radius:20px;
 }
+.tour-details-content{
+  margin-top:-80px;
+  position:relative;
+  z-index:5;
+}
+
+.tour-info-grid{
+  background:white;
+
+  border-radius:32px;
+
+  padding:50px;
+
+  box-shadow:
+  0 20px 60px
+  rgba(0,0,0,0.08);
+}
 
 @media(max-width:992px){
 

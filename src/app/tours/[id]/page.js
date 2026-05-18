@@ -10,6 +10,7 @@ import './tour-details.css'
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import TourDetailsClient from '@/components/tours/TourDetailsClient'
+import TourCarousel from '@/components/tours/TourCarousel'
 
 
 
@@ -51,58 +52,13 @@ export default async function TourDetailsPage({
       <Navbar />
     <div className="tour-details-page">
 
-      <div className="tour-hero">
 
-        <Image
-          src={tour.images?.[0]}
-          alt={tour.title}
-          fill
-          priority
-          className="tour-hero-image"
-        />
 
-        <div className="tour-overlay">
-
-          <div className="container">
-
-            <h1>
-              {tour.title}
-            </h1>
-
-            <p>
-              {tour.location}
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      <div className="tour-gallery">
-
-        {
-          tour.images?.map(
-            (image,index)=>(
-
-            <div
-              key={index}
-              className="gallery-image"
-            >
-
-              <Image
-                src={image}
-                alt={tour.title}
-                width={400}
-                height={250}
-              />
-
-            </div>
-
-          ))
-        }
-
-      </div>
+      <TourCarousel
+        images={tour.images}
+        title={tour.title}
+        location={tour.location}
+      />
 
       <section className="tour-details-content">
 
