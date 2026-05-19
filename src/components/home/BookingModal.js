@@ -9,6 +9,7 @@ import { FaTimes } from 'react-icons/fa'
 import Button from '../shared/Button'
 
 import './BookingModal.css'
+import { createPortal } from 'react-dom'
 
 export default  function BookingModal({
   isOpen,
@@ -114,7 +115,7 @@ useEffect(()=>{
         }
   }
 
-  return (
+  return createPortal (
             <div
         className="modal-overlay"
         onClick={onClose}
@@ -238,6 +239,8 @@ useEffect(()=>{
 
       </div>
 
-    </div>
+    </div>,
+
+    document.body
   )
 }
