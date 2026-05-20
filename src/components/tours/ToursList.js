@@ -25,6 +25,9 @@ export default function ToursList(){
   const [page,setPage]
   = useState(1)
 
+  const [totalPages,setTotalPages]
+= useState(1)
+
   const limit = 6
 
   useEffect(()=>{
@@ -52,6 +55,10 @@ export default function ToursList(){
 
       setTours(data.tours)
 
+        setTotalPages(
+        data.totalPages
+        )
+
       setLoading(false)
 
     }catch(error){
@@ -74,23 +81,28 @@ export default function ToursList(){
 
         <div className="search-box">
 
-          <input
-            type="text"
-            placeholder="Search tours..."
+                <div className="search-input-wrapper">
 
-            value={search}
+            <input
+                type="text"
 
-            onChange={(e)=>{
+                placeholder=
+                "Search destinations..."
 
-              setSearch(
-                e.target.value
-              )
+                value={search}
 
-              setPage(1)
+                onChange={(e)=>{
 
-            }}
-          />
+                setSearch(
+                    e.target.value
+                )
 
+                setPage(1)
+
+                }}
+            />
+
+            </div>
         </div>
 
         {/* TOURS */}
@@ -129,35 +141,59 @@ export default function ToursList(){
 
         {/* PAGINATION */}
 
-        <div className="pagination">
+            <div className="pagination">
 
-          <button
+            <button
+                disabled={page===1}
 
-            disabled={page===1}
+                onClick={()=>
+                setPage(page-1)
+                }
+            >
+                ←
+            </button>
 
-            onClick={()=>
-              setPage(page-1)
+            {
+
+                [...Array(totalPages)]
+                .map((_,index)=>(
+
+                <button
+
+                    key={index}
+
+                    className={
+                    page===index+1
+                    ? 'active-page'
+                    : ''
+                    }
+
+                    onClick={()=>
+                    setPage(index+1)
+                    }
+                >
+                    {index+1}
+                </button>
+
+                ))
+
             }
 
-          >
-            Prev
-          </button>
+            <button
 
-          <span>
-            Page {page}
-          </span>
+                disabled={
+                page===totalPages
+                }
 
-          <button
+                onClick={()=>
+                setPage(page+1)
+                }
 
-            onClick={()=>
-              setPage(page+1)
-            }
+            >
+                →
+            </button>
 
-          >
-            Next
-          </button>
-
-        </div>
+            </div>
 
       </div>
 
