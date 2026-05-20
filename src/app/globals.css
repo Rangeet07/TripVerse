@@ -30,7 +30,7 @@ img{
   display:block;
 }
 .container{
-  width:100%;
+  width:92%;
   max-width:1200px;
   margin:auto;
 }
@@ -101,4 +101,11 @@ select{
   color:white;
 
   cursor:pointer;
+}
+
+@media(max-width:768px){
+
+  .container{
+    width:94%;
+  }
 }
