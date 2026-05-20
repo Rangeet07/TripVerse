@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import imageCompression from 'browser-image-compression'
 
 export default function AddTourPage(){
 
@@ -36,6 +37,16 @@ const handleSubmit = async(e)=>{
 
     }
 
+    if(images.length > 5){
+
+      alert(
+        'Maximum 5 images allowed'
+      )
+
+      return
+    }
+        
+
     /*
       STEP 1
       Upload image
@@ -45,12 +56,30 @@ const uploadedImages = []
 
 for(const image of images){
 
+  /*
+    COMPRESS IMAGE
+  */
+
+  const compressedImage =
+  await imageCompression(
+    image,
+    {
+
+      maxSizeMB:1,
+
+      maxWidthOrHeight:1600,
+
+      useWebWorker:true
+
+    }
+  )
+
   const imageFormData =
   new FormData()
 
   imageFormData.append(
     'image',
-    image
+    compressedImage
   )
 
   const uploadRes =

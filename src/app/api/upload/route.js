@@ -37,13 +37,19 @@ export async function POST(req){
       buffer.toString('base64')
     }`
 
-    const uploadedImage =
-    await cloudinary.uploader.upload(
-      base64,
-      {
-        folder:'travel-tours'
-      }
-    )
+      const uploadedImage =
+      await cloudinary.uploader.upload(
+        base64,
+        {
+
+          folder:'travel-tours',
+
+          quality:'auto',
+
+          fetch_format:'auto'
+
+        }
+)
 
     return NextResponse.json({
 

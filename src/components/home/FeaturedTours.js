@@ -32,7 +32,7 @@ export default async function FeaturedTours() {
     await connectDB()
   
    const toursRaw =
-  await Tour.find().lean()
+  await Tour.find().limit(6).lean()
 
   const tours =
   JSON.parse(

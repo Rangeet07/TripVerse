@@ -229,7 +229,7 @@
 
 .tour-info-grid{
   padding:20px;
-
+backdrop-filter:blur(10px);
   border-radius:24px;
 
   gap:24px;

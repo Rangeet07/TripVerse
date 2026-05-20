@@ -4,6 +4,7 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import PageBanner from '@/components/shared/PageBanner'
 import FeaturedTours from '@/components/home/FeaturedTours'
+import ToursList from '@/components/tours/ToursList'
 
 export default function ToursPage() {
 
@@ -17,7 +18,7 @@ export default function ToursPage() {
         subtitle="Discover unforgettable travel experiences across the globe."
       />
 
-      <FeaturedTours />
+      <ToursList />
 
       <Footer />
 

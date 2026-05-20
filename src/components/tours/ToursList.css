@@ -1,0 +1,59 @@
+.tours-page-section{
+  padding:80px 0;
+}
+
+.search-box{
+  margin-bottom:40px;
+
+  display:flex;
+
+  justify-content:center;
+}
+
+.search-box input{
+  width:100%;
+
+  max-width:500px;
+
+  padding:16px 22px;
+
+  border-radius:14px;
+
+  border:1px solid #ddd;
+
+  font-size:16px;
+
+  outline:none;
+}
+
+.pagination{
+  margin-top:50px;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  gap:20px;
+}
+
+.pagination button{
+  border:none;
+
+  padding:12px 20px;
+
+  border-radius:12px;
+
+  background:#00bcd4;
+
+  color:white;
+
+  cursor:pointer;
+}
+
+.pagination button:disabled{
+  opacity:0.5;
+
+  cursor:not-allowed;
+}
