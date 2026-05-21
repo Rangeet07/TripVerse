@@ -1,35 +1,69 @@
 import './Hero.css'
-import Button from '../shared/Button'
-import Link from 'next/link'
 
-export default function Hero() {
+import Button
+from '../shared/Button'
+
+import Link
+from 'next/link'
+
+import {
+  FaMapMarkerAlt
+}
+from 'react-icons/fa'
+
+export default function Hero(){
+
   return (
+
     <section className="hero">
 
-      <div className="overlay">
+      <div className="hero-overlay">
 
         <div className="hero-content">
 
+          <div className="hero-badge">
+
+            <FaMapMarkerAlt />
+
+            <span>
+              Explore Dream Destinations
+            </span>
+
+          </div>
+
           <h1>
-            Discover The Beauty Of The World
+
+            Discover The World's
+            Most Beautiful
+            Places
+
           </h1>
 
           <p>
-            Find amazing destinations, exclusive tours,
-            and unforgettable travel experiences.
+
+            Experience unforgettable journeys,
+            curated tours, and luxury travel
+            adventures crafted for modern explorers.
+
           </p>
 
           <div className="hero-buttons">
 
             <Link href="/tours">
-              <Button text="Explore Tours" />
+
+              <Button
+                text="Explore Tours"
+              />
+
             </Link>
 
             <Link href="/about">
+
               <Button
                 text="Learn More"
                 type="secondary"
               />
+
             </Link>
 
           </div>
@@ -39,5 +73,7 @@ export default function Hero() {
       </div>
 
     </section>
+
   )
+
 }

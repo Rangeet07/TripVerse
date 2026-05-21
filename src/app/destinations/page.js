@@ -1,63 +1,90 @@
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
-import PageBanner from '@/components/shared/PageBanner'
+'use client'
+export const dynamic = 'force-dynamic'
+import { useEffect }
+from 'react'
 
-export default function DestinationsPage() {
+import { useState }
+from 'react'
 
-  const destinations = [
-    'Maldives',
-    'Paris',
-    'Bali',
-    'Dubai',
-    'Switzerland',
-    'Tokyo'
-  ]
+import Navbar
+from '@/components/layout/Navbar'
+
+import Footer
+from '@/components/layout/Footer'
+
+import PageBanner
+from '@/components/shared/PageBanner'
+
+import DestinationCard
+from '@/components/destinations/DestinationCard'
+
+import './destinations.css'
+
+export default function DestinationsPage(){
+
+  const [
+    destinations,
+    setDestinations
+  ] = useState([])
+
+  useEffect(()=>{
+
+    fetchDestinations()
+
+  },[])
+
+  const fetchDestinations =
+  async()=>{
+
+    const res =
+    await fetch(
+      '/api/destinations'
+    )
+
+    const data =
+    await res.json()
+
+    setDestinations(
+      data.destinations
+    )
+
+  }
 
   return (
+
     <main>
 
       <Navbar />
 
       <PageBanner
         title="Top Destinations"
-        subtitle="Explore beautiful places around the world."
+        subtitle="Explore breathtaking travel destinations around the world."
       />
 
       <section
-        style={{
-          padding:'80px 5%'
-        }}
+        className="destinations-section"
       >
 
         <div className="container">
 
           <div
-            style={{
-              display:'grid',
-              gridTemplateColumns:'repeat(auto-fit,minmax(220px,1fr))',
-              gap:'25px'
-            }}
+            className="destinations-grid"
           >
 
             {
-              destinations.map((place,index)=>(
 
-                <div
+              destinations.map(
+                (destination,index)=>(
+
+                <DestinationCard
                   key={index}
-                  style={{
-                    background:'white',
-                    padding:'40px 20px',
-                    borderRadius:'20px',
-                    textAlign:'center',
-                    boxShadow:'0 5px 20px rgba(0,0,0,0.06)'
-                  }}
-                >
-
-                  <h3>{place}</h3>
-
-                </div>
+                  destination={
+                    destination
+                  }
+                />
 
               ))
+
             }
 
           </div>
@@ -69,5 +96,7 @@ export default function DestinationsPage() {
       <Footer />
 
     </main>
+
   )
+
 }

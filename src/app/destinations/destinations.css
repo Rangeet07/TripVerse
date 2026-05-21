@@ -1,0 +1,30 @@
+.destinations-section{
+  padding:90px 0;
+
+  background:#f8fafc;
+}
+
+.destinations-grid{
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(340px,1fr));
+
+  gap:40px;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .destinations-section{
+    padding:70px 0;
+  }
+
+  .destinations-grid{
+    grid-template-columns:1fr;
+
+    gap:28px;
+  }
+
+}
