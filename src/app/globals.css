@@ -103,6 +103,9 @@ select{
   cursor:pointer;
 }
 
+.tours-wrapper{
+  background:#f8fafc;
+}
 @media(max-width:768px){
 
   .container{

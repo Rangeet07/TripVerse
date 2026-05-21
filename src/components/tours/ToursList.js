@@ -6,9 +6,8 @@ from 'react'
 import { useState }
 from 'react'
 
-import TourCard
-from '../cards/TourCard'
-
+import TourCard from '../cards/TourCard'
+import { FaSearch } from 'react-icons/fa'
 import './ToursList.css'
 
 export default function ToursList(){
@@ -81,28 +80,32 @@ export default function ToursList(){
 
         <div className="search-box">
 
-                <div className="search-input-wrapper">
+        <div className="search-input-wrapper">
 
-            <input
-                type="text"
+          <FaSearch
+            className="search-icon"
+          />
 
-                placeholder=
-                "Search destinations..."
+          <input
+            type="text"
 
-                value={search}
+            placeholder=
+            "Search destinations..."
 
-                onChange={(e)=>{
+            value={search}
 
-                setSearch(
-                    e.target.value
-                )
+            onChange={(e)=>{
 
-                setPage(1)
+              setSearch(
+                e.target.value
+              )
 
-                }}
-            />
+              setPage(1)
 
-            </div>
+            }}
+          />
+
+        </div>
         </div>
 
         {/* TOURS */}
@@ -110,10 +113,11 @@ export default function ToursList(){
         {
           loading ?
 
-          <h2>
-            Loading...
-          </h2>
+        <div className="loading-wrapper">
 
+          <div className="loading-bar"></div>
+
+        </div>
           :
 
           <div className="tour-grid">

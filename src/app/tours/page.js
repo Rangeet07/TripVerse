@@ -18,7 +18,11 @@ export default function ToursPage() {
         subtitle="Discover unforgettable travel experiences across the globe."
       />
 
-      <ToursList />
+      <section className="tours-wrapper">
+
+        <ToursList />
+
+      </section>
 
       <Footer />
 
