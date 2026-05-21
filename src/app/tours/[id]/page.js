@@ -11,6 +11,8 @@ import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import TourDetailsClient from '@/components/tours/TourDetailsClient'
 import TourCarousel from '@/components/tours/TourCarousel'
+import WeatherCard from '@/components/weather/WeatherCard'
+import TourMap from '@/components/maps/TourMap'
 
 
 
@@ -96,6 +98,10 @@ export default async function TourDetailsPage({
 
               </div>
 
+                                <WeatherCard
+                          city={tour.location}
+                          />
+
               <div className="tour-itinerary">
 
                 <h2>
@@ -123,6 +129,10 @@ export default async function TourDetailsPage({
                 </ul>
 
               </div>
+
+                    <TourMap
+        location={tour.location}
+      />
 
             </div>
 

@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import BookingModal from '../home/BookingModal'
+import WeatherCard from '../weather/WeatherCard'
 
 
 export default function TourDetailsClient({
@@ -14,6 +15,7 @@ export default function TourDetailsClient({
   return (
 
     <>
+
 
       <div className="tour-booking-card">
 
@@ -38,6 +40,7 @@ export default function TourDetailsClient({
         </button>
 
       </div>
+
 
       <BookingModal
         isOpen={isOpen}
