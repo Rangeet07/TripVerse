@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 *{
   margin:0;
@@ -11,11 +11,14 @@ html{
 }
 
 body{
-  font-family:'Poppins',sans-serif;
+  font-family:'Inter',sans-serif;
   background:#f8f9fa;
   color:#222;
+  letter-spacing:-0.2px;
 }
-
+h1,h2,h3,h4,h5{
+  letter-spacing:-1px;
+}
 a{
   text-decoration:none;
   color:inherit;

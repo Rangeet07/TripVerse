@@ -11,6 +11,7 @@ import BookingModal from '../home/BookingModal'
 import Button from '../shared/Button'
 
 import './TourCard.css'
+
 import Link from 'next/link'
 
 export default function TourCard({
@@ -23,67 +24,74 @@ export default function TourCard({
 
   const [openModal,setOpenModal] = useState(false)
 
-// const tour = {
-//   title,
-//   image,
-//   price,
-//   location,
-//   id:crypto.randomUUID()
-// }
   return (
     <>
 
+      <Link
+        href={`/tours/${tour._id}`}
+        className="tour-card-link"
+      >
 
-      <div className="tour-card">
-<Link href={`/tours/${tour._id}`}>
-        <div className="tour-image">
+        <div className="tour-card">
 
-          <Image
-            src={image}
-            alt={title}
-            fill
-            sizes="(max-width:768px) 100vw,
-            (max-width:1200px) 50vw,
-            33vw"
-          />
+          <div className="tour-image">
 
-        </div>
-
-        </Link>
-
-
-        <div className="tour-content">
-
-          <div className="tour-location">
-
-            <FaMapMarkerAlt />
-
-            <span>{location}</span>
-
-          </div>
-
-          <h3>{title}</h3>
-
-          <div className="tour-footer">
-
-            <h4>${price}</h4>
-
-            <Button
-              text="Book"
-              onClick={()=>setOpenModal(true)}
+            <Image
+              src={image}
+              alt={title}
+              fill
+              quality={75}
+              sizes="
+              (max-width:768px) 100vw,
+              (max-width:1200px) 50vw,
+              33vw"
             />
 
           </div>
 
+          <div className="tour-content">
+
+            <div className="tour-location">
+
+              <FaMapMarkerAlt />
+
+              <span>{location}</span>
+
+            </div>
+
+            <h3>{title}</h3>
+
+            <div className="tour-footer">
+
+              <h4>${price}</h4>
+
+              <div
+                onClick={(e)=>{
+                  e.preventDefault()
+                  e.stopPropagation()
+
+                  setOpenModal(true)
+                }}
+              >
+
+                <Button text="Book" />
+
+              </div>
+
+            </div>
+
+          </div>
+
         </div>
 
-      </div>
+      </Link>
 
       <BookingModal
         isOpen={openModal}
         onClose={()=>setOpenModal(false)}
         tour={tour}
       />
+
     </>
   )
 }
