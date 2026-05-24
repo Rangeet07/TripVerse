@@ -1,17 +1,68 @@
+'use client'
+
 import './Hero.css'
-
-import Button
-from '../shared/Button'
-
-import Link
-from 'next/link'
+import Button from '../shared/Button'
+import Link from 'next/link'
+import {
+  FaMapMarkerAlt,
+  FaSearch
+} from 'react-icons/fa'
 
 import {
-  FaMapMarkerAlt
-}
-from 'react-icons/fa'
+  useEffect,
+  useState
+} from 'react'
 
 export default function Hero(){
+const [search,setSearch]
+= useState('')
+
+const [results,setResults]
+= useState([])
+
+const [showResults,setShowResults]
+= useState(false)
+useEffect(()=>{
+
+  const fetchTours =
+  async ()=>{
+
+    if(!search.trim()){
+
+      setResults([])
+      return
+    }
+
+    try{
+
+      const res =
+      await fetch(
+        `/api/tours?search=${search}`
+      )
+
+      const data =
+      await res.json()
+
+      setResults(data.tours || [])
+
+    }catch(error){
+
+      console.log(error)
+
+    }
+
+  }
+
+  const timer =
+  setTimeout(fetchTours,300)
+
+  return ()=>clearTimeout(timer)
+
+},[search])
+
+
+
+
 
   return (
 
@@ -20,53 +71,139 @@ export default function Hero(){
       <div className="hero-overlay">
 
         <div className="hero-content">
+            <div className="hero-badge">
 
-          <div className="hero-badge">
+              <FaMapMarkerAlt />
 
-            <FaMapMarkerAlt />
+              <span>
+                Explore Dream Destinations
+              </span>
 
-            <span>
-              Explore Dream Destinations
-            </span>
+            </div>
 
-          </div>
+            <h1>
 
-          <h1>
+              Luxury Travel
+              Experiences For
+              Modern Explorers
 
-            Discover The World's
-            Most Beautiful
-            Places
+            </h1>
 
-          </h1>
+            <p>
 
-          <p>
+              Discover curated journeys,
+              breathtaking destinations,
+              and unforgettable adventures
+              across the globe.
 
-            Experience unforgettable journeys,
-            curated tours, and luxury travel
-            adventures crafted for modern explorers.
+            </p>
 
-          </p>
+            {/* SEARCH */}
 
-          <div className="hero-buttons">
+            <div className="hero-search-wrapper">
 
-            <Link href="/tours">
+              <div className="hero-search">
 
-              <Button
-                text="Explore Tours"
-              />
+                <FaSearch className="hero-search-icon" />
 
-            </Link>
+                <input
+                  type="text"
+                  placeholder="Search tours or destinations..."
+                  value={search}
+                  onChange={(e)=>{
 
-            <Link href="/about">
+                    setSearch(e.target.value)
+                    setShowResults(true)
 
-              <Button
-                text="Learn More"
-                type="secondary"
-              />
+                  }}
+                />
 
-            </Link>
+              </div>
 
-          </div>
+              {
+
+                showResults &&
+                results.length > 0 && (
+
+                  <div className="hero-search-results">
+
+                    {
+
+                      results.map((tour)=>(
+
+                        <Link
+                          key={tour._id}
+                          href={`/tours/${tour._id}`}
+                          className="hero-search-item"
+                        >
+
+                          <img
+                            src={tour.images?.[0]}
+                            alt={tour.title}
+                          />
+
+                          <div>
+
+                            <h4>
+                              {tour.title}
+                            </h4>
+
+                            <span>
+                              {tour.location}
+                            </span>
+
+                          </div>
+
+                        </Link>
+
+                      ))
+
+                    }
+
+                  </div>
+
+                )
+
+              }
+
+            </div>
+
+            <div className="hero-buttons">
+
+              <Link href="/tours">
+
+                <Button
+                  text="Explore Tours"
+                />
+
+              </Link>
+
+              <Link href="/about">
+
+                <Button
+                  text="Learn More"
+                  type="secondary"
+                />
+
+              </Link>
+
+            </div>
+
+            <div className="hero-stats">
+
+              <div className="hero-stat-card">
+                <h3>15K+</h3>
+                <span>Happy Travelers</span>
+              </div>
+
+              <div className="hero-stat-card">
+                <h3>120+</h3>
+                <span>Destinations</span>
+              </div>
+
+
+
+            </div>
 
         </div>
 
