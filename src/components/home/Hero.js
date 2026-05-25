@@ -226,7 +226,7 @@ useEffect(()=>{
 
             </div>
 
-            <div className="hero-stats">
+            {/* <div className="hero-stats">
 
               <div className="hero-stat-card">
                 <h3>15K+</h3>
@@ -240,7 +240,7 @@ useEffect(()=>{
 
 
 
-            </div>
+            </div> */}
 
         </div>
 

@@ -8,6 +8,7 @@
 
 html{
   scroll-behavior:smooth;
+  overflow-x:hidden;
 }
 
 body{
@@ -15,6 +16,7 @@ body{
   background:#f8f9fa;
   color:#222;
   letter-spacing:-0.2px;
+  overflow-x:hidden;
 }
 h1,h2,h3,h4,h5{
   letter-spacing:-1px;

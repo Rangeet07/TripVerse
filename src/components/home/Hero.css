@@ -5,7 +5,7 @@
 
   min-height:100vh;
 
-  overflow:visible; /* CHANGE THIS */
+  overflow: hidden;
 
   display:flex;
 
@@ -50,7 +50,7 @@
   width:100%;
 
   padding:
-  120px 5% 80px;
+  100px 5% 60px;
 }
 
 .hero-content{
@@ -93,7 +93,7 @@
 /* HEADING */
 
 .hero-content h1{
-  font-size:64px;
+  font-size:58px;
 
   line-height:1.05;
 
@@ -207,7 +207,7 @@
 
   .hero-overlay{
     padding:
-    110px 6% 70px;
+    90px 5% 50px;
   }
 
   .hero-content{
@@ -223,9 +223,9 @@
   }
 
   .hero-content h1{
-    font-size:40px;
+    font-size:36px;
 
-    line-height:1.08;
+    line-height:1.12;
 
     letter-spacing:-2px;
 
@@ -237,7 +237,7 @@
 
     line-height:1.8;
 
-    margin-bottom:34px;
+    margin-bottom:24px;
   }
 
   .hero-buttons{
@@ -269,6 +269,9 @@
   position:relative;
 
   width:100%;
+    display:flex;
+
+  align-items:center;
 }
 
 .hero-search input{
@@ -285,11 +288,12 @@
   padding:0 18px 0 48px;
 
   font-size:14px;
+   appearance:none;
 
   background:
   rgba(255,255,255,0.14);
 
-  backdrop-filter:blur(14px);
+  backdrop-filter:blur(8px);
 
   color:white;
 
@@ -310,7 +314,7 @@
 
   box-shadow:
   0 10px 30px
-  rgba(0,0,0,0.18);
+  rgba(0,0,0,0.14);
 }
 
 .hero-search input::placeholder{
@@ -346,6 +350,10 @@
 
   width:100%;
 
+  max-width: 100%;
+
+  box-sizing:border-box;
+
   background:white;
 
   border-radius:18px;
@@ -353,8 +361,8 @@
   overflow:hidden;
 
   box-shadow:
-  0 20px 50px
-  rgba(0,0,0,0.18);
+  0 10px 30px
+  rgba(0,0,0,0.14);
 
   z-index:9999;
 
@@ -369,12 +377,25 @@
   animation:
   heroDropdown 0.25s ease;
 }
- .hero-stat-card{
-    flex:1;
+.hero-stat-card{
+  min-width:120px;
+  flex:0 0 auto;
+}
+@media(max-width:768px){
 
-    min-width:unset;
+  .hero-stats{
+    gap:12px;
   }
 
+  .hero-stat-card{
+    flex:1 1 calc(50% - 6px);
+
+    min-width:0;
+
+    padding:16px;
+  }
+
+}
 .hero-search-item{
   display:flex;
 
@@ -439,22 +460,36 @@
 
   position:absolute;
 
-  width:500px;
-
-  height:500px;
+  width:280px;
+  height:280px;
 
   border-radius:50%;
 
   background:
-  rgba(0,188,212,0.12);
+  rgba(0,188,212,0.10);
 
-  filter:blur(120px);
+  filter:blur(90px);
 
-  right:-120px;
-
-  bottom:-120px;
+  right:-80px;
+  bottom:-80px;
 
   z-index:1;
+
+  pointer-events:none;
+}
+
+@media(max-width:768px){
+
+  .hero::after{
+    width:180px;
+    height:180px;
+
+    filter:blur(70px);
+
+    right:-60px;
+    bottom:-60px;
+  }
+
 }
 
 .hero-stats{
@@ -505,6 +540,7 @@
 
   .hero-search-wrapper{
     max-width:100%;
+    overflow: visible;
   }
 
   .hero-search input{
@@ -513,7 +549,7 @@
     border-radius:16px;
 
     padding-left:48px;
-
+    appearance: none;
     font-size:13px;
   }
 
