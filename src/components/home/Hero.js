@@ -10,6 +10,7 @@ import {
 
 import {
   useEffect,
+  useRef,
   useState
 } from 'react'
 
@@ -22,6 +23,38 @@ const [results,setResults]
 
 const [showResults,setShowResults]
 = useState(false)
+
+const searchRef = useRef(null)
+ 
+useEffect(()=>{
+
+  const handleOutside = (e)=>{
+
+    if(
+      searchRef.current &&
+      !searchRef.current.contains(e.target)
+    ){
+      setShowResults(false)
+    }
+
+  }
+
+  document.addEventListener(
+    'mousedown',
+    handleOutside
+  )
+
+  return ()=>{
+
+    document.removeEventListener(
+      'mousedown',
+      handleOutside
+    )
+
+  }
+
+},[])
+
 useEffect(()=>{
 
   const fetchTours =
@@ -100,7 +133,7 @@ useEffect(()=>{
 
             {/* SEARCH */}
 
-            <div className="hero-search-wrapper">
+            <div className="hero-search-wrapper" ref={searchRef}> 
 
               <div className="hero-search">
 
@@ -131,11 +164,15 @@ useEffect(()=>{
 
                       results.map((tour)=>(
 
-                        <Link
-                          key={tour._id}
-                          href={`/tours/${tour._id}`}
-                          className="hero-search-item"
-                        >
+                      <Link
+                        key={tour._id}
+                        href={`/tours/${tour._id}`}
+                        className="hero-search-item"
+                        onClick={()=>{
+                          setShowResults(false)
+                          setSearch('')
+                        }}
+                      >
 
                           <img
                             src={tour.images?.[0]}
