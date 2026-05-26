@@ -20,6 +20,8 @@ const [search,setSearch]
 
 const [results,setResults]
 = useState([])
+const [loading,setLoading]
+= useState(false)
 
 const [showResults,setShowResults]
 = useState(false)
@@ -63,8 +65,11 @@ useEffect(()=>{
     if(!search.trim()){
 
       setResults([])
+      setLoading(false)
       return
     }
+
+    setLoading(true)
 
     try{
 
@@ -77,10 +82,14 @@ useEffect(()=>{
       await res.json()
 
       setResults(data.tours || [])
+   
 
     }catch(error){
-
       console.log(error)
+
+    }finally{
+
+    setLoading(false)
 
     }
 
@@ -153,55 +162,76 @@ useEffect(()=>{
 
               </div>
 
-              {
+                  {
+                    showResults && (
 
-                showResults &&
-                results.length > 0 && (
+                      <div className="hero-search-results">
 
-                  <div className="hero-search-results">
+                        {
+                          loading && (
+                            <div className="no-results">
+                              <p>Searching tours...</p>
+                            </div>
+                          )
+                        }
 
-                    {
+                        {
+                          !loading &&
+                          results.length > 0 &&
+                          results.map((tour)=>(
 
-                      results.map((tour)=>(
+                            <Link
+                              key={tour._id}
+                              href={`/tours/${tour._id}`}
+                              className="hero-search-item"
+                              onClick={()=>{
+                                setShowResults(false)
+                                setSearch('')
+                              }}
+                            >
 
-                      <Link
-                        key={tour._id}
-                        href={`/tours/${tour._id}`}
-                        className="hero-search-item"
-                        onClick={()=>{
-                          setShowResults(false)
-                          setSearch('')
-                        }}
-                      >
+                              <img
+                                src={tour.images?.[0]}
+                                alt={tour.title}
+                              />
 
-                          <img
-                            src={tour.images?.[0]}
-                            alt={tour.title}
-                          />
+                              <div>
 
-                          <div>
+                                <h4>
+                                  {tour.title}
+                                </h4>
 
-                            <h4>
-                              {tour.title}
-                            </h4>
+                                <span>
+                                  {tour.location}
+                                </span>
 
-                            <span>
-                              {tour.location}
-                            </span>
+                              </div>
 
-                          </div>
+                            </Link>
 
-                        </Link>
+                          ))
+                        }
 
-                      ))
+                        {
+                          !loading &&
+                          search &&
+                          results.length === 0 && (
 
-                    }
+                            <div className="no-results">
 
-                  </div>
+                              <p>
+                                No tours found
+                              </p>
 
-                )
+                            </div>
 
-              }
+                          )
+                        }
+
+                      </div>
+
+                    )
+                  }
 
             </div>
 

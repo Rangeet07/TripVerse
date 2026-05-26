@@ -5,7 +5,8 @@
 
   min-height:100vh;
 
-  overflow: hidden;
+  overflow-x:hidden;
+  overflow-y:visible;
 
   display:flex;
 
@@ -48,14 +49,15 @@
   z-index:2;
 
   width:100%;
-
+  overflow:visible;
   padding:
   100px 5% 60px;
 }
 
 .hero-content{
   width:100%;
-
+  position:relative;
+  z-index:20;
   max-width:700px;
 
   color:white;
@@ -107,9 +109,9 @@
 /* TEXT */
 
 .hero-content p{
-  max-width:580px;
+  max-width:520px;
 
-  font-size:17px;
+  font-size:16px;
 
   line-height:1.8;
 
@@ -302,6 +304,7 @@
   rgba(255,255,255,0.10);
 
   transition:0.25s ease;
+  -webkit-tap-highlight-color:transparent;
 }
 
 .hero-search input:focus{
@@ -313,14 +316,15 @@
   rgba(255,255,255,0.22);
 
   box-shadow:
-  0 10px 30px
-  rgba(0,0,0,0.14);
+  0 8px 20px
+  rgba(0,0,0,0.12);
 }
 
 .hero-search input::placeholder{
   color:#dbeafe;
 
   font-size:14px;
+  
 }
 
 .hero-search-icon{
@@ -344,31 +348,26 @@
 .hero-search-results{
   position:absolute;
 
-  top:62px;
-
+  top:64px;
   left:0;
 
   width:100%;
-
-  max-width: 100%;
-
-  box-sizing:border-box;
 
   background:white;
 
   border-radius:18px;
 
-  overflow:hidden;
-
   box-shadow:
-  0 10px 30px
-  rgba(0,0,0,0.14);
+  0 18px 45px
+  rgba(0,0,0,0.18);
 
-  z-index:9999;
+  z-index:99999;
 
   max-height:320px;
 
   overflow-y:auto;
+
+  overflow-x:hidden;
 
   border:
   1px solid
@@ -377,6 +376,16 @@
   animation:
   heroDropdown 0.25s ease;
 }
+.no-results{
+  padding:18px;
+}
+
+.no-results p{
+  color:#64748b;
+  font-size:14px;
+}
+
+
 .hero-stat-card{
   min-width:120px;
   flex:0 0 auto;
@@ -468,7 +477,7 @@
   background:
   rgba(0,188,212,0.10);
 
-  filter:blur(90px);
+  filter:blur(60px);
 
   right:-80px;
   bottom:-80px;
@@ -512,7 +521,7 @@
   background:
   rgba(255,255,255,0.10);
 
-  backdrop-filter:blur(14px);
+  backdrop-filter:blur(8px);
 
   border:
   1px solid
@@ -537,6 +546,18 @@
   font-size:14px;
 }
 @media(max-width:768px){
+
+  body,
+  html{
+    overflow-x:hidden;
+  }
+
+  .hero,
+  .hero-overlay,
+  .hero-content{
+    overflow:visible;
+  }
+
 
   .hero-search-wrapper{
     max-width:100%;
