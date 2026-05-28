@@ -3,6 +3,7 @@
 *{
   margin:0;
   padding:0;
+  min-width: 0;
 
   box-sizing:border-box;
 }
@@ -10,6 +11,7 @@
 html{
   scroll-behavior:smooth;
   overflow-x:hidden;
+ 
 }
 
 body{
@@ -17,7 +19,7 @@ body{
   background:#f8f9fa;
   color:#222;
   letter-spacing:-0.2px;
-  overflow-x:hidden;
+
    padding-top:72px;
 }
 h1,h2,h3,h4,h5{
@@ -41,9 +43,7 @@ img{
   max-width:1200px;
   margin:auto;
 }
-section{
-  overflow-x:clip;
-}
+
 .section-title{
   text-align:center;
   margin-bottom:15px;

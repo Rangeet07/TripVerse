@@ -4,10 +4,10 @@
   left:0;
   width:100%;
   z-index:10000;
-
+box-sizing:border-box;
   backdrop-filter:blur(14px);
   -webkit-backdrop-filter:blur(14px);
-
+  overflow: hidden;
   box-shadow:
 0 8px 30px rgba(0,0,0,0.08);
 
@@ -21,9 +21,9 @@
 }
 
 .navbar-container{
-  width:92%;
+  width:min(92%,1300px);
 
-  max-width:1300px;
+  
 
   height:72px;
 

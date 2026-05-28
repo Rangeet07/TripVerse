@@ -5,8 +5,8 @@
 
   min-height:100vh;
 
-  overflow-x:hidden;
-  overflow-y:visible;
+  overflow-x: clip;
+ 
 
   display:flex;
 
@@ -49,16 +49,15 @@
   z-index:2;
 
   width:100%;
-  overflow:visible;
-  padding:
-  100px 5% 60px;
+
+  padding:100px 5% 60px;
 }
 
 .hero-content{
   width:100%;
   position:relative;
   z-index:20;
-  max-width:640px;
+  max-width:700px;
 
   color:white;
 }
@@ -85,7 +84,7 @@
   1px solid
   rgba(255,255,255,0.15);
 
-  backdrop-filter:blur(8px);
+  backdrop-filter:blur(10px);
 
   font-size:14px;
 
@@ -95,7 +94,7 @@
 /* HEADING */
 
 .hero-content h1{
-  font-size:clamp(42px,7vw,64px);
+  font-size:58px;
 
   line-height:1.05;
 
@@ -150,7 +149,7 @@
 
   transition:0.3s ease;
 
-  backdrop-filter:blur(8px);
+  backdrop-filter:blur(10px);
 }
 
 .primary-btn{
@@ -207,9 +206,11 @@
     background-position:center;
   }
 
- .hero-overlay{
-  padding: 40px 5% 40px;
-}
+  .hero-overlay{
+    padding:
+    90px 5% 50px;
+  }
+
   .hero-content{
     text-align:left;
   }
@@ -290,10 +291,8 @@
   font-size:14px;
    appearance:none;
 
-    background:
-    rgba(255,255,255,0.10);
-    border:
-    1px solid rgba(255,255,255,0.08);
+  background:
+  rgba(255,255,255,0.14);
 
   backdrop-filter:blur(8px);
 
@@ -361,7 +360,7 @@
   0 18px 45px
   rgba(0,0,0,0.18);
 
-  z-index:500;
+  z-index:99999;
 
   max-height:320px;
 
@@ -469,31 +468,32 @@
 
   position:absolute;
 
-  width:280px;
-  height:280px;
+  width:160px;
+  height:160px;
 
   border-radius:50%;
 
   background:
-  rgba(0,188,212,0.10);
+  rgba(0,188,212,0.08);
 
-  filter:blur(50px);
+  filter:blur(40px);
 
-  right:-80px;
-  bottom:-80px;
+  right:0;
+  bottom:0;
+
+  transform:translate(30%,30%);
 
   z-index:1;
 
   pointer-events:none;
 }
-
 @media(max-width:768px){
 
   .hero::after{
     width:180px;
     height:180px;
 
-    filter:blur(50px);
+    filter:blur(70px);
 
     right:-60px;
     bottom:-60px;
@@ -547,22 +547,8 @@
 }
 @media(max-width:768px){
 
-  body,
-  html{
-    overflow-x:hidden;
-  }
-
-  .hero,
-  .hero-overlay,
-  .hero-content{
-    overflow:visible;
-  }
 
 
-  .hero-search-wrapper{
-    max-width:100%;
-    overflow: visible;
-  }
 
   .hero-search input{
     height:52px;
