@@ -31,9 +31,11 @@ export default async function FeaturedTours() {
   
     await connectDB()
   
-   const toursRaw =
-  await Tour.find().limit(6).lean()
-
+  const toursRaw =
+  await Tour.find()
+  .sort({ createdAt:-1 })
+  .limit(6)
+  .lean()
   const tours =
   JSON.parse(
     JSON.stringify(toursRaw)
@@ -44,14 +46,24 @@ export default async function FeaturedTours() {
 
       <div className="container">
 
-        <h2 className="section-title">
-          Featured Tours
-        </h2>
+          <div className="featured-header">
 
-        <p className="section-subtitle">
-          Explore our handpicked travel experiences
-          designed for unforgettable adventures.
-        </p>
+            <span className="featured-subtag">
+              Premium Experiences
+            </span>
+
+            <h2>
+              Discover Our Most
+              Popular Adventures
+            </h2>
+
+            <p className="section-subtitle">
+              Carefully curated journeys designed for
+              travelers seeking unforgettable moments,
+              breathtaking landscapes, and premium comfort.
+            </p>
+
+          </div>
         <FadeUp>
 
         <div className="tour-grid">
