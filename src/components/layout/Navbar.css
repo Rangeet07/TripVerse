@@ -2,32 +2,30 @@
   position:fixed;
   top:0;
   left:0;
+
   width:100%;
-  z-index:10000;
-box-sizing:border-box;
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-  overflow: hidden;
-  box-shadow:
-0 8px 30px rgba(0,0,0,0.08);
-
-  border-bottom:
-  1px solid
-  rgba(255,255,255,0.08);
-
-  transition:
-  background 0.3s ease,
-  backdrop-filter 0.3s ease;
-}
-
-.navbar-container{
-  width:min(92%,1300px);
-
-  
 
   height:72px;
 
-  margin:auto;
+  z-index:10000;
+
+  background:#ffffff;
+
+  border-bottom:1px solid #e5e7eb;
+
+  overflow:hidden;
+}
+
+.navbar-container{
+  width:100%;
+
+  max-width:1200px;
+
+  height:100%;
+
+  margin:0 auto;
+
+  padding:0 20px;
 
   display:flex;
 
@@ -43,64 +41,39 @@ box-sizing:border-box;
 
   font-weight:700;
 
-  letter-spacing:-0.5px;
-
   color:#0f172a;
+
+  white-space:nowrap;
 }
 
 .logo span{
   color:#00b894;
 }
 
-/* DESKTOP LINKS */
+/* LINKS */
 
 .nav-links{
   display:flex;
 
   align-items:center;
 
-  gap:34px;
+  gap:28px;
 
   list-style:none;
 }
 
 .nav-links a{
-  position:relative;
-
   font-size:15px;
 
   font-weight:500;
 
   color:#334155;
 
-  transition:0.3s ease;
+  transition:0.2s;
 }
 
 .nav-links a:hover{
   color:#00b894;
-}
-
-.nav-links a::after{
-  content:'';
-
-  position:absolute;
-
-  left:0;
-  bottom:-8px;
-
-  width:0;
-
-  height:2px;
-
-  background:#00b894;
-
-  border-radius:999px;
-
-  transition:0.3s ease;
-}
-
-.nav-links a:hover::after{
-  width:100%;
 }
 
 /* BUTTON */
@@ -108,48 +81,25 @@ box-sizing:border-box;
 .nav-btn{
   border:none;
 
-  padding:12px 22px;
+  padding:12px 20px;
 
   border-radius:999px;
 
-  background:
-  linear-gradient(
-    135deg,
-    #00b894,
-    #00cec9
-  );
+  background:#00b894;
 
   color:white;
 
   font-size:14px;
 
-  font-weight:600;
-
   cursor:pointer;
-
-  transition:0.35s ease;
-
-  box-shadow:
-  0 10px 25px
-  rgba(0,184,148,0.22);
 }
 
-.nav-btn:hover{
-  transform:translateY(-2px);
-
-  box-shadow:
-  0 14px 35px
-  rgba(0,184,148,0.3);
-}
-
-/* MOBILE ICON */
+/* MENU ICON */
 
 .menu-icon{
   display:none;
 
   font-size:24px;
-
-  color:#0f172a;
 
   cursor:pointer;
 }
@@ -161,16 +111,15 @@ box-sizing:border-box;
 
   inset:0;
 
-  background:
-  rgba(15,23,42,0.45);
+  background:rgba(0,0,0,0.4);
 
   opacity:0;
 
   visibility:hidden;
 
-  transition:0.35s ease;
+  transition:0.3s;
 
-  z-index:998;
+  z-index:9998;
 }
 
 .mobile-overlay.active{
@@ -187,9 +136,7 @@ box-sizing:border-box;
   top:0;
   right:-100%;
 
-  width:82%;
-
-  max-width:340px;
+  width:280px;
 
   height:100vh;
 
@@ -197,19 +144,15 @@ box-sizing:border-box;
 
   z-index:9999;
 
-  padding:100px 32px 40px;
+  padding:90px 24px;
 
   display:flex;
 
   flex-direction:column;
 
-  gap:24px;
+  gap:22px;
 
-  transition:0.45s ease;
-
-  box-shadow:
-  -10px 0 40px
-  rgba(0,0,0,0.12);
+  transition:0.3s;
 }
 
 .mobile-sidebar.active{
@@ -217,44 +160,25 @@ box-sizing:border-box;
 }
 
 .mobile-sidebar a{
-  font-size:18px;
+  font-size:17px;
 
   font-weight:600;
-
-  color:#0f172a;
-
-  transition:0.3s ease;
-}
-
-.mobile-sidebar a:hover{
-  color:#00b894;
-
-  transform:translateX(4px);
 }
 
 .mobile-login-btn{
-  margin-top:20px;
+  margin-top:10px;
+
+  height:50px;
 
   border:none;
 
-  height:52px;
+  border-radius:12px;
 
-  border-radius:18px;
-
-  background:
-  linear-gradient(
-    135deg,
-    #00b894,
-    #00cec9
-  );
+  background:#00b894;
 
   color:white;
 
   font-size:15px;
-
-  font-weight:600;
-
-  cursor:pointer;
 }
 
 /* MOBILE */
@@ -270,12 +194,7 @@ box-sizing:border-box;
     display:block;
   }
 
-  .navbar-container{
+  .navbar{
     height:68px;
   }
-
-  .logo{
-    font-size:25px;
-  }
-
 }
