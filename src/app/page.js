@@ -8,6 +8,8 @@ import Testimonials from '@/components/home/Testimonials'
 import CTA from '@/components/home/CTA'
 import Footer from '@/components/layout/Footer'
 import FloatingContact from '@/components/shared/FloatingContact'
+import HomeDestinations from '@/components/home/HomeDestinations'
+import destinations from '@/data/destinations'
 
 export default function Home() {
 
@@ -17,6 +19,9 @@ export default function Home() {
       <Navbar />
 
       <Hero />
+      {/* <HomeDestinations
+        destinations={destinations}
+      /> */}
 
       <FeaturedTours />
 
