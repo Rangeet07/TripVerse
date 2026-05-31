@@ -313,8 +313,11 @@
     flex-direction:column;
   }
 
-  .admin-content{
+   .admin-content{
+
     padding:20px 16px;
+
+    margin-top:0;
   }
 
 }
