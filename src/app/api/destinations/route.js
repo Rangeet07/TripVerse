@@ -1,59 +1,85 @@
-import { NextResponse }
-from 'next/server'
+import { NextResponse } from 'next/server'
 
-export async function GET(){
+import connectDB from '@/lib/mongodb'
+
+import Destination from '@/models/Destination'
+
+export async function GET(req){
 
   try{
 
-    const destinations = [
+    await connectDB()
 
-      'Maldives',
-      'Paris',
-      'Bali',
-      'Dubai',
-      'Switzerland',
-      'Tokyo'
+    const {
+      searchParams
+    } = new URL(req.url)
 
-    ]
+    const page =
+    Number(
+      searchParams.get('page')
+    ) || 1
 
-    const results =
-    await Promise.all(
+    const limit = 6
 
-      destinations.map(
-        async(destination)=>{
+    const skip =
+    (page - 1) * limit
 
-        const res =
-        await fetch(
+    const search =
+    searchParams.get('search')
+    || ''
 
-`https://api.unsplash.com/search/photos?query=${destination}&per_page=1&client_id=${process.env.UNSPLASH_ACCESS_KEY}`
+    const tag =
+    searchParams.get('tag')
+    || ''
 
-        )
+    const tags =
+    searchParams.get('tags')
+    const query = {}
 
-        const data =
-        await res.json()
+    // Search by destination name
 
-        return {
+    if(search){
 
-          name:destination,
+      query.name = {
+        $regex:search,
+        $options:'i'
+      }
 
-          image:
-          data.results?.[0]
-          ?.urls?.regular,
+    }
 
-          description:
-          getDescription(destination)
+    // Filter by tag
 
-        }
+if(tags){
 
-      })
+  query.tags = {
+    $in: tags.split(',')
+  }
 
+}
+    const destinations =
+    await Destination.find(query)
+
+    .skip(skip)
+
+    .limit(limit)
+
+    .sort({
+      createdAt:-1
+    })
+
+    const total =
+    await Destination.countDocuments(
+      query
     )
 
     return NextResponse.json({
 
       success:true,
 
-      destinations:results
+      destinations,
+
+      totalPages:
+      Math.ceil(total / limit)
 
     })
 
@@ -71,34 +97,72 @@ export async function GET(){
 
 }
 
-function getDescription(
-  destination
-){
+export async function POST(req){
 
-  const descriptions = {
+  try{
 
-    Maldives:
-    'Crystal-clear waters, luxury overwater villas, and unforgettable island escapes.',
+    await connectDB()
 
-    Paris:
-    'Romantic streets, iconic landmarks, and timeless European charm.',
+    const body =
+    await req.json()
 
-    Bali:
-    'Tropical beaches, jungle retreats, and spiritual tranquility.',
+    const destination =
+    await Destination.create(body)
 
-    Dubai:
-    'Luxury shopping, futuristic skyscrapers, and desert adventures.',
+    return NextResponse.json({
 
-    Switzerland:
-    'Snow-covered Alps, scenic train journeys, and breathtaking landscapes.',
+      success:true,
 
-    Tokyo:
-    'A vibrant blend of modern innovation and ancient traditions.'
+      destination
+
+    })
+
+  }catch(error){
+
+    return NextResponse.json({
+
+      success:false,
+
+      message:error.message
+
+    })
 
   }
 
-  return descriptions[
-    destination
-  ]
+}
+
+export async function DELETE(req){
+
+  try{
+
+    await connectDB()
+
+    const {
+      searchParams
+    } = new URL(req.url)
+
+    const id =
+    searchParams.get('id')
+
+    await Destination
+    .findByIdAndDelete(id)
+
+    return NextResponse.json({
+
+      success:true
+
+    })
+
+  }catch(error){
+
+    return NextResponse.json({
+
+      success:false,
+
+      message:error.message
+
+    })
+
+  }
 
 }

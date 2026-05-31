@@ -8,7 +8,8 @@ import {
   FaClipboardList,
   FaPlus,
   FaBars,
-  FaTimes
+  FaTimes,
+  FaMapMarkedAlt
 } from 'react-icons/fa'
 
 import { useState } from 'react'
@@ -62,7 +63,6 @@ export default function AdminSidebar(){
           Travel<span>Go</span>
 
         </h2>
-
         <nav>
 
           <Link href="/admin">
@@ -83,6 +83,11 @@ export default function AdminSidebar(){
           <Link href="/admin/add-tour">
             <FaPlus />
             Add Tour
+          </Link>
+
+          <Link href="/admin/add-destination">
+            <FaMapMarkedAlt />
+            Add Destination
           </Link>
 
         </nav>
