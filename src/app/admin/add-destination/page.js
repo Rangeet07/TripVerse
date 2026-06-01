@@ -10,7 +10,8 @@ export default function AddDestinationPage(){
     country:'',
     description:'',
     bestTime:'',
-    tags:''
+    tags:'',
+    featured: false
   })
 
   const [images,setImages] = useState([])
@@ -92,6 +93,8 @@ export default function AddDestinationPage(){
 
         bestTime:
         formData.bestTime,
+        
+        featured: formData.featured,
 
         tags:
         formData.tags
@@ -126,14 +129,16 @@ export default function AddDestinationPage(){
           'Destination Added Successfully'
         )
 
-        setFormData({
-          name:'',
-          country:'',
-          description:'',
-          bestTime:'',
-          tags:''
-        })
+          setFormData({
 
+            title:'',
+            location:'',
+            description:'',
+            price:'',
+            duration:'',
+            featured:false
+
+          })
         setImages([])
 
       }else{
@@ -265,6 +270,35 @@ export default function AddDestinationPage(){
           }
 
         </div>
+                  <div
+            style={{
+              display:'flex',
+              alignItems:'center',
+              gap:'10px'
+            }}
+          >
+
+            <input
+              type="checkbox"
+              id="featured"
+              checked={formData.featured}
+              onChange={(e)=>
+                setFormData({
+                  ...formData,
+                  featured:e.target.checked
+                })
+              }
+              style={{
+                width:'18px',
+                height:'18px'
+              }}
+            />
+
+            <label htmlFor="featured">
+              Show on Homepage Featured Tours
+            </label>
+
+          </div>
 
         <button type="submit">
           Add Destination

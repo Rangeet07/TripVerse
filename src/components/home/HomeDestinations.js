@@ -13,6 +13,14 @@ import {
   Autoplay
 } from 'swiper/modules'
 
+import {
+  FaMountain,
+  FaTree,
+  FaWater,
+  FaSun,
+  FaHotel
+} from 'react-icons/fa'
+
 import 'swiper/css'
 import 'swiper/css/navigation'
 
@@ -21,9 +29,33 @@ import './HomeDestinations.css'
 export default function HomeDestinations({
   destinations
 }){
+const getTagIcon = (tag)=>{
 
+  const t = tag.toLowerCase()
+
+  if(t.includes('hill'))
+    return <FaMountain />
+
+  if(t.includes('forest'))
+    return <FaTree />
+
+  if(t.includes('river'))
+    return <FaWater />
+
+  if(t.includes('desert'))
+    return <FaSun />
+
+   if(t.includes('beach'))
+    return <FaWater />
+   if(t.includes('hotels'))
+    return <FaHotel />
+  return null
+
+}
 const featured =
-destinations?.[0] || null
+destinations.find(
+  d => d.featured
+)
 
 const others =
 destinations?.slice(1) || []
@@ -63,7 +95,9 @@ destinations?.slice(1) || []
             />
 
             <div className="featured-overlay">
-
+            <div className="featured-badge">
+                ⭐ Most Popular
+              </div>
               <div>
 
                 <span>
@@ -80,17 +114,24 @@ destinations?.slice(1) || []
 
               </div>
 
-              <div className="featured-tags">
+            <div className="featured-tags">
 
-                {featured.tags?.slice(0,3).map(tag=>(
+              {featured.tags?.slice(0,3).map(tag => (
 
-                  <span key={tag}>
-                    {tag}
-                  </span>
+              <span
+                key={tag}
+                className="destination-tag"
+              >
 
-                ))}
+                {getTagIcon(tag)}
 
-              </div>
+                {tag}
+
+              </span>
+
+              ))}
+
+            </div>
 
             </div>
 
