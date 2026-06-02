@@ -70,7 +70,9 @@ export default async function AdminDashboard(){
             {bookings.length}
           </p>
 
-        </div>
+        </div> 
+
+        
 
       </div>
 

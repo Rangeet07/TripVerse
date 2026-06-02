@@ -131,11 +131,11 @@ export default function AddDestinationPage(){
 
           setFormData({
 
-            title:'',
-            location:'',
+            name:'',
+            country:'',
             description:'',
-            price:'',
-            duration:'',
+            bestTime:'',
+            tags:'',
             featured:false
 
           })
@@ -294,9 +294,9 @@ export default function AddDestinationPage(){
               }}
             />
 
-            <label htmlFor="featured">
-              Show on Homepage Featured Tours
-            </label>
+        <label htmlFor="featured">
+          Show as Featured Destination on Homepage
+        </label>
 
           </div>
 

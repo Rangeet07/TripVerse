@@ -15,12 +15,14 @@ import {
 import { useState } from 'react'
 
 import './AdminSidebar.css'
+import { usePathname } from 'next/navigation'
+
 
 export default function AdminSidebar(){
 
   const [isOpen,setIsOpen] =
   useState(false)
-
+const pathname = usePathname()
   return (
     <>
 
@@ -65,27 +67,27 @@ export default function AdminSidebar(){
         </h2>
         <nav>
 
-          <Link href="/admin">
+          <Link href="/admin" className={ pathname === '/admin' ? 'active' : ''}>
             <FaTachometerAlt />
             Dashboard
           </Link>
 
-          <Link href="/admin/tours">
+          <Link href="/admin/tours" className={ pathname === '/admin/tours' ? 'active' : ''}>
             <FaSuitcase />
             Tours
           </Link>
 
-          <Link href="/admin/bookings">
+          <Link href="/admin/bookings" className={ pathname === '/admin/bookings' ? 'active' : ''}>
             <FaClipboardList />
             Bookings
           </Link>
 
-          <Link href="/admin/add-tour">
+          <Link href="/admin/add-tour" className={ pathname === '/admin/add-tour' ? 'active' : ''}>
             <FaPlus />
             Add Tour
           </Link>
 
-          <Link href="/admin/add-destination">
+          <Link href="/admin/add-destination" className={ pathname === '/admin/add-destination' ? 'active' : ''}>
             <FaMapMarkedAlt />
             Add Destination
           </Link>

@@ -45,7 +45,13 @@
 
   transition:0.3s;
 }
+.admin-sidebar nav a.active{
+  background:#00b894;
 
+  color:white;
+
+  font-weight:600;
+}
 .admin-sidebar nav a:hover{
   background:#1e293b;
 
