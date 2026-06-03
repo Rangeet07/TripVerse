@@ -25,7 +25,11 @@ export default async function AdminToursPage(){
 
   await connectDB()
  const toursRaw =
-  await Tour.find().lean()
+  await Tour.find()
+  .select(
+  'title location price images'
+  )
+  .lean()
 
   const tours =
   JSON.parse(

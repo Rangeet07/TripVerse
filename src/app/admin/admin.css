@@ -312,6 +312,113 @@
 
   color:#00b894;
 }
+.dashboard-skeleton{
+  height:120px;
+
+  border-radius:20px;
+
+  background:
+  linear-gradient(
+    90deg,
+    #f1f5f9 25%,
+    #e2e8f0 50%,
+    #f1f5f9 75%
+  );
+
+  background-size:200% 100%;
+
+  animation:shimmer 1.5s infinite;
+}
+
+.booking-skeleton{
+  height:90px;
+
+  border-radius:16px;
+
+  margin-bottom:18px;
+
+  background:
+  linear-gradient(
+    90deg,
+    #f1f5f9 25%,
+    #e2e8f0 50%,
+    #f1f5f9 75%
+  );
+
+  background-size:200% 100%;
+
+  animation:shimmer 1.5s infinite;
+}
+
+.success-banner{
+  background:#dcfce7;
+
+  color:#166534;
+
+  padding:14px 18px;
+
+  border-radius:12px;
+
+  margin-bottom:20px;
+
+  font-weight:600;
+}
+
+.upload-progress{
+  margin-bottom:20px;
+}
+
+.progress-top{
+  display:flex;
+
+  justify-content:space-between;
+
+  margin-bottom:8px;
+
+  font-size:14px;
+
+  font-weight:600;
+}
+
+.progress-bar{
+  width:100%;
+
+  height:12px;
+
+  background:#e2e8f0;
+
+  border-radius:999px;
+
+  overflow:hidden;
+}
+
+.progress-fill{
+  height:100%;
+
+  background:#00b894;
+
+  border-radius:999px;
+
+  transition:width .4s ease;
+}
+
+button:disabled{
+  opacity:.7;
+
+  cursor:not-allowed;
+}
+
+@keyframes shimmer{
+
+  0%{
+    background-position:200% 0;
+  }
+
+  100%{
+    background-position:-200% 0;
+  }
+
+}
 
 @media(max-width:768px){
 

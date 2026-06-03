@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import imageCompression from 'browser-image-compression'
-
+import './../admin.css'
 export default function AddDestinationPage(){
 
   const [formData,setFormData] = useState({
@@ -13,6 +13,15 @@ export default function AddDestinationPage(){
     tags:'',
     featured: false
   })
+  
+      const [loading,setLoading] =
+    useState(false)
+
+    const [progress,setProgress] =
+    useState(0)
+
+    const [success,setSuccess] =
+    useState('')
 
   const [images,setImages] = useState([])
 
@@ -29,6 +38,10 @@ export default function AddDestinationPage(){
 
     e.preventDefault()
 
+    setLoading(true)
+    setProgress(0)
+    setSuccess('')
+
     try{
 
       if(images.length === 0){
@@ -40,7 +53,9 @@ export default function AddDestinationPage(){
 
       const uploadedImages = []
 
-      for(const image of images){
+      for(let i=0;i<images.length;i++){
+
+        const image = images[i]
 
         const compressedImage =
         await imageCompression(
@@ -77,6 +92,12 @@ export default function AddDestinationPage(){
           uploadedImages.push(
             uploadData.imageUrl
           )
+          setProgress(
+          Math.round(
+            ((i + 1) / images.length)
+            * 80
+          )
+        )
 
         }
 
@@ -106,6 +127,8 @@ export default function AddDestinationPage(){
 
       }
 
+      setProgress(90)
+
       const res = await fetch(
         '/api/destinations',
         {
@@ -122,13 +145,13 @@ export default function AddDestinationPage(){
 
       const data =
       await res.json()
-
+      setProgress(100)
       if(data.success){
 
-        alert(
-          'Destination Added Successfully'
+        setSuccess(
+        '✅ Destination Added Successfully'
         )
-
+        setLoading(false)
           setFormData({
 
             name:'',
@@ -154,7 +177,7 @@ export default function AddDestinationPage(){
       alert(
         'Something went wrong'
       )
-
+      setLoading(false)
     }
 
   }
@@ -170,6 +193,18 @@ export default function AddDestinationPage(){
       >
         Add Destination
       </h1>
+
+                {
+          success && (
+
+          <div className="success-banner">
+
+            {success}
+
+          </div>
+
+          )
+          }
 
       <form
         onSubmit={handleSubmit}
@@ -300,8 +335,52 @@ export default function AddDestinationPage(){
 
           </div>
 
-        <button type="submit">
-          Add Destination
+                    {
+          loading && (
+
+          <div className="upload-progress">
+
+            <div className="progress-top">
+
+              <span>
+                Uploading...
+              </span>
+
+              <span>
+                {progress}%
+              </span>
+
+            </div>
+
+            <div className="progress-bar">
+
+              <div
+                className="progress-fill"
+                style={{
+                  width:`${progress}%`
+                }}
+              />
+
+            </div>
+
+          </div>
+
+          )
+          }
+
+        <button
+          type="submit"
+          disabled={loading}
+        >
+
+        {
+        loading
+        ?
+        `Uploading ${progress}%`
+        :
+        'Add Destination'
+        }
+
         </button>
 
       </form>

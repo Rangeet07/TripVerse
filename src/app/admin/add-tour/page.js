@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import imageCompression from 'browser-image-compression'
-
+import './../admin.css'
 export default function AddTourPage(){
 
     const [formData,setFormData] = useState({
@@ -14,6 +14,14 @@ export default function AddTourPage(){
     })
 
     const [images,setImages] = useState([])
+          const [loading,setLoading] =
+        useState(false)
+    
+        const [progress,setProgress] =
+        useState(0)
+    
+        const [success,setSuccess] =
+        useState('')
 
   const handleChange = (e)=>{
 
@@ -25,7 +33,11 @@ export default function AddTourPage(){
   }
 const handleSubmit = async(e)=>{
 
-  e.preventDefault()
+      e.preventDefault()
+
+      setLoading(true)
+      setProgress(0)
+      setSuccess('')
 
   try{
 
@@ -54,7 +66,9 @@ const handleSubmit = async(e)=>{
 
 const uploadedImages = []
 
-for(const image of images){
+for(let i=0;i<images.length;i++){
+
+  const image = images[i]
 
   /*
     COMPRESS IMAGE
@@ -99,6 +113,12 @@ for(const image of images){
     uploadedImages.push(
       uploadData.imageUrl
     )
+    setProgress(
+      Math.round(
+        ((i + 1) / images.length)
+        * 80
+      )
+)
 
   }
 
@@ -120,7 +140,7 @@ for(const image of images){
       )
 
     }
-
+    setProgress(90)
     const res = await fetch(
       '/api/tours',
       {
@@ -141,13 +161,13 @@ for(const image of images){
 
     const data =
     await res.json()
-
+    setProgress(100)
     if(data.success){
 
-      alert(
-        'Tour Added Successfully'
+      setSuccess(
+      '✅ Destination Added Successfully'
       )
-
+      setLoading(false)
       setFormData({
 
         title:'',
@@ -169,7 +189,7 @@ for(const image of images){
   }catch(error){
 
     console.log(error)
-
+    setLoading(false)
     alert(
       'Something went wrong'
     )
@@ -188,7 +208,17 @@ for(const image of images){
       >
         Add Tour
       </h1>
+        {
+        success && (
 
+        <div className="success-banner">
+
+          {success}
+
+        </div>
+
+        )
+        }
       <form
         onSubmit={handleSubmit}
         className="admin-form"
@@ -279,11 +309,52 @@ for(const image of images){
           onChange={handleChange}
           required
         />
+{
+            loading && (
 
-        <button type="submit">
-          Add Tour
-        </button>
+            <div className="upload-progress">
 
+              <div className="progress-top">
+
+                <span>
+                  Uploading...
+                </span>
+
+                <span>
+                  {progress}%
+                </span>
+
+              </div>
+
+              <div className="progress-bar">
+
+                <div
+                  className="progress-fill"
+                  style={{
+                    width:`${progress}%`
+                  }}
+                />
+
+              </div>
+
+            </div>
+
+            )
+}
+          <button
+            type="submit"
+            disabled={loading}
+          >
+
+          {
+          loading
+          ?
+          `Uploading ${progress}%`
+          :
+          'Add Tour'
+          }
+
+          </button>
       </form>
 
     </div>
