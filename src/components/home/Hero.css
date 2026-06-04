@@ -3,7 +3,7 @@
 
   width:100%;
 
-  min-height:100vh;
+  min-height:85vh;
 
   overflow-x: clip;
  
@@ -13,16 +13,18 @@
   align-items:center;
 
   background:
-  linear-gradient(
-    rgba(0,0,0,0.58),
-    rgba(0,0,0,0.45)
-  ),
+linear-gradient(
+ rgba(0,0,0,0.65),
+ rgba(0,0,0,0.35)
+),
   url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1800');
 
   background-size:cover;
 
   background-position:center;
 }
+
+
 
 /* ATMOSPHERIC GLOW */
 
@@ -71,7 +73,8 @@
 
   gap:10px;
 
-  padding:10px 18px;
+  padding:8px 14px;
+
 
   border-radius:999px;
 
@@ -86,7 +89,7 @@
 
   backdrop-filter:blur(10px);
 
-  font-size:14px;
+  font-size:12px;
 
   color:#f1f5f9;
 }
@@ -94,8 +97,8 @@
 /* HEADING */
 
 .hero-content h1{
-  font-size:58px;
-
+  font-size:52px;
+  max-width: 650px;
   line-height:1.05;
 
   font-weight:800;
@@ -191,7 +194,7 @@
 @media(max-width:992px){
 
   .hero-content h1{
-    font-size:62px;
+    font-size:34px;
   }
 
 }
@@ -201,7 +204,7 @@
 @media(max-width:768px){
 
   .hero{
-    min-height: 88vh;
+    min-height: 75vh;
 
     background-position:center;
   }
@@ -290,21 +293,41 @@
 
   font-size:14px;
    appearance:none;
-
-  background:
-  rgba(255,255,255,0.14);
-
+  background:white;
+  color:#0f172a;
   backdrop-filter:blur(8px);
 
-  color:white;
 
-  border:
-  1px solid
-  rgba(255,255,255,0.10);
 
+  border: none;
+  box-shadow:
+  0 10px 30px
+  rgba(0,0,0,.15);
   transition:0.25s ease;
   -webkit-tap-highlight-color:transparent;
 }
+.search-btn{
+  position:absolute;
+
+  right:8px;
+  top:50%;
+
+  transform:translateY(-50%);
+
+  width:42px;
+  height:42px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:#00b894;
+
+  color:white;
+
+  cursor:pointer;
+}
+
 
 .hero-search input:focus{
   background:
@@ -320,7 +343,7 @@
 }
 
 .hero-search input::placeholder{
-  color:#dbeafe;
+   color:#64748b;
 
   font-size:14px;
   
@@ -335,7 +358,7 @@
 
   transform:translateY(-50%);
 
-  color:white;
+  color:#64748b;
 
   opacity:0.8;
 
@@ -406,20 +429,22 @@
 }
 .hero-search-item{
   display:flex;
-
+  border-radius: 14px;
+  margin: 6px;
   align-items:center;
 
   gap:12px;
 
   padding:12px 14px;
 
-  transition:0.2s ease;
+  transition: .25s;
 
   text-decoration:none;
 }
 
 .hero-search-item:hover{
   background:#f8fafc;
+   transform:translateX(4px);
 }
 
 .hero-search-item img{

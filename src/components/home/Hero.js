@@ -146,8 +146,6 @@ useEffect(()=>{
 
               <div className="hero-search">
 
-                <FaSearch className="hero-search-icon" />
-
                 <input
                   type="text"
                   placeholder="Search tours or destinations..."
@@ -159,6 +157,10 @@ useEffect(()=>{
 
                   }}
                 />
+
+                <button className="search-btn">
+                <FaSearch />
+              </button>
 
               </div>
 
