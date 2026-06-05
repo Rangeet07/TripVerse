@@ -107,7 +107,7 @@ useEffect(()=>{
 
 
   return (
-
+    <>
     <section className="hero">
 
       <div className="hero-overlay">
@@ -139,6 +139,15 @@ useEffect(()=>{
               across the globe.
 
             </p>
+
+            <div className="hero-popular">
+
+            <span>Sandakphu</span>
+            <span>Sikkim</span>
+            <span>Darjeeling</span>
+            <span>Bhutan</span>
+
+          </div>
 
             {/* SEARCH */}
 
@@ -279,6 +288,18 @@ useEffect(()=>{
       </div>
 
     </section>
+              <section className="hero-mini-stats">
+
+            <span>15K+ Travelers</span>
+
+            <span>120+ Tours</span>
+
+            <span>4.9 Rating</span>
+
+          </section>
+
+</>
+    
 
   )
 
