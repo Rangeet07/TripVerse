@@ -12,12 +12,13 @@ export default function DestinationCard({
 
       <div className="destination-image-wrapper">
 
-        <Image
-          src={destination.image}
-          alt={destination.name}
-          fill
-          className="destination-image"
-        />
+                  <Image
+                    src={destination.images?.[0]}
+                    alt={destination.name}
+                    fill
+                    className="destination-image"
+                  />
+
 
       </div>
 
