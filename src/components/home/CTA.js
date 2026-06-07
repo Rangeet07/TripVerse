@@ -3,29 +3,53 @@ import Button from '../shared/Button'
 export default function CTA() {
 
   return (
-    <section className="cta">
+<section className="cta">
 
-      <div className="container">
+  <div className="cta-content">
 
-        <div className="cta-content">
+    <span className="cta-badge">
+      ✈️ Premium Travel Experiences
+    </span>
 
-          <h2>
-            Ready For Your Next Adventure?
-          </h2>
+    <h2>
+      Ready For Your Next Adventure?
+    </h2>
 
-          <p>
-            Discover the world with premium travel
-            experiences tailored just for you.
-          </p>
+    <p>
+      Discover handpicked destinations, exclusive
+      travel experiences, and personalized journeys
+      designed for modern explorers.
+    </p>
 
-          <Button
-  text="Start Exploring"
-/>
+    <div className="cta-actions">
 
-        </div>
+      <Button text="Explore Tours" />
 
-      </div>
+    </div>
 
-    </section>
+    <div className="newsletter">
+
+      <h3>
+        Get Travel Inspiration & Deals
+      </h3>
+
+      <form className="newsletter-form">
+
+        <input
+          type="email"
+          placeholder="Enter your email"
+        />
+
+        <button type="submit">
+          Subscribe
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</section>
   )
 }
