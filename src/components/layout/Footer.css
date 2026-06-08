@@ -73,7 +73,54 @@
 
   color:#94a3b8;
 }
+.footer-newsletter{
+  display:flex;
+  flex-direction:column;
 
+  gap:12px;
+
+  margin-top:20px;
+}
+
+.footer-newsletter input{
+  height:48px;
+
+  padding:0 16px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:#1e293b;
+
+  color:white;
+}
+
+.footer-newsletter input::placeholder{
+  color:#94a3b8;
+}
+
+.footer-newsletter button{
+  height:48px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:#00b894;
+
+  color:white;
+
+  font-weight:600;
+
+  cursor:pointer;
+
+  transition:.3s;
+}
+
+.footer-newsletter button:hover{
+  background:#019875;
+}
 /* TABLET */
 
 @media(min-width:768px){
@@ -87,9 +134,8 @@
 /* DESKTOP */
 
 @media(min-width:1024px){
-
   .footer-container{
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:
+    1.5fr 1fr 1fr 1.2fr;
   }
-
 }

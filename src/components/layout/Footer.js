@@ -83,6 +83,28 @@ export default function Footer() {
           <p>India</p>
 
         </div>
+        <div className="footer-section newsletter">
+
+          <h3>Newsletter</h3>
+
+          <p>
+            Get travel inspiration, deals and destination updates.
+          </p>
+
+          <form className="footer-newsletter">
+
+            <input
+              type="email"
+              placeholder="Your email"
+            />
+
+            <button type="submit">
+              Subscribe
+            </button>
+
+          </form>
+
+        </div>
 
       </div>
 
