@@ -35,20 +35,53 @@
   grid-template-columns:1fr;
  
 }
+.newsletter{
+  background:
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,.04),
+    rgba(255,255,255,.02)
+  );
+
+  border:1px solid rgba(255,255,255,.08);
+
+  border-radius:24px;
+
+  padding:28px;
+
+  backdrop-filter:blur(12px);
+}
+
 .footer-tag{
-  display:inline-block;
+  display:inline-flex;
+
+  align-items:center;
 
   padding:6px 12px;
 
   border-radius:999px;
 
-  background:rgba(0,184,148,.15);
+  background:rgba(0,184,148,.12);
 
-  color:#00b894;
+  color:#00d4aa;
 
   font-size:12px;
 
+  font-weight:600;
+
+  margin-bottom:14px;
+}
+
+.newsletter h3{
+  font-size:28px;
+
   margin-bottom:12px;
+
+  line-height:1.2;
+}
+
+.newsletter p{
+  margin-bottom:20px;
 }
 .footer-section h2{
   font-size:32px;
