@@ -85,7 +85,13 @@ export default function Footer() {
         </div>
         <div className="footer-section newsletter">
 
-          <h3>Newsletter</h3>
+          <span className="footer-tag">
+            Travel Updates
+          </span>
+
+          <h3>
+            Join Our Newsletter
+          </h3>
 
           <p>
             Get travel inspiration, deals and destination updates.
