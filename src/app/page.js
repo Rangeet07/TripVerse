@@ -51,9 +51,9 @@ export default async function Home(){
 
       <FeaturedTours />
 
-      <Testimonials />
-
       <CTA />
+      
+      <Testimonials />
 
       <Footer />
 
