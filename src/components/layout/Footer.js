@@ -36,6 +36,36 @@ export default function Footer() {
 
         </div>
 
+        <div className="footer-section newsletter">
+
+          <span className="footer-tag">
+            Travel Updates
+          </span>
+
+          <h3>
+            Join Our Newsletter
+          </h3>
+
+          <p>
+            Get travel inspiration, deals and destination updates.
+          </p>
+
+          <form className="footer-newsletter">
+
+            <input
+              type="email"
+              placeholder="Your email"
+            />
+
+            <button type="submit">
+              Subscribe
+            </button>
+
+          </form>
+
+        </div>
+
+
         <div className="footer-section">
 
           <h3>Quick Links</h3>
@@ -81,34 +111,6 @@ export default function Footer() {
           <p>Email: info@travelgo.com</p>
           <p>Phone: +91 9876543210</p>
           <p>India</p>
-
-        </div>
-        <div className="footer-section newsletter">
-
-          <span className="footer-tag">
-            Travel Updates
-          </span>
-
-          <h3>
-            Join Our Newsletter
-          </h3>
-
-          <p>
-            Get travel inspiration, deals and destination updates.
-          </p>
-
-          <form className="footer-newsletter">
-
-            <input
-              type="email"
-              placeholder="Your email"
-            />
-
-            <button type="submit">
-              Subscribe
-            </button>
-
-          </form>
 
         </div>
 
