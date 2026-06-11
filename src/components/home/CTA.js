@@ -1,5 +1,6 @@
 import './CTA.css'
 import Button from '../shared/Button'
+import Link from 'next/link'
 export default function CTA() {
 
   return (
@@ -22,9 +23,9 @@ export default function CTA() {
     </p>
 
     <div className="cta-actions">
-
+      <Link href="/tours" >
       <Button text="Explore Tours" />
-
+      </Link>
     </div>
 
     <div className="newsletter">
