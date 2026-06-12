@@ -4,13 +4,15 @@ import './FloatingContact.css'
 
 import {
   FaWhatsapp,
-  FaPhoneAlt
+  FaPhoneAlt,  
+  FaArrowUp,
+  FaArrowDown
 } from 'react-icons/fa'
 
 export default function FloatingContact(){
 
   return (
-
+    <>
     <div className="floating-contact">
 
       <a
@@ -29,6 +31,33 @@ export default function FloatingContact(){
       </a>
 
     </div>
+    <div className="page-nav">
+
+  <button
+    onClick={()=>
+      window.scrollTo({
+        top:0,
+        behavior:'smooth'
+      })
+    }
+  >
+    <FaArrowUp />
+  </button>
+
+  <button
+    onClick={()=>
+      window.scrollTo({
+        top:
+        document.body.scrollHeight,
+        behavior:'smooth'
+      })
+    }
+  >
+    <FaArrowDown />
+  </button>
+
+</div>
+    </>
 
   )
 
