@@ -15,7 +15,30 @@ export default function Navbar() {
 
   const [menuOpen,setMenuOpen]
   = useState(false)
+  const [scrolled,setScrolled]
+  = useState(false)
 
+  useEffect(()=>{
+
+    const handleScroll = ()=>{
+
+      setScrolled(
+        window.scrollY > 30
+      )
+
+    }
+
+    window.addEventListener(
+      'scroll',
+      handleScroll
+    )
+
+    return ()=>window.removeEventListener(
+      'scroll',
+      handleScroll
+    )
+
+  },[])
   // LOCK BODY SCROLL
 
   useEffect(()=>{
@@ -38,7 +61,13 @@ export default function Navbar() {
 
     <>
 
-    <nav className="navbar">
+    <nav
+        className={
+          scrolled
+          ? 'navbar navbar-scrolled'
+          : 'navbar'
+        }
+      >
 
       <div className="navbar-container">
 
@@ -132,6 +161,18 @@ export default function Navbar() {
         : 'mobile-sidebar'
       }
     >
+
+      <div className="mobile-header">
+
+        <h2>
+          Travel<span>Go</span>
+        </h2>
+
+        <p>
+          Explore the world
+        </p>
+
+      </div>
 
       <Link
         href="/"
