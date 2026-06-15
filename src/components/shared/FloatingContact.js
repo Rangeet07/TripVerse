@@ -1,62 +1,109 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import './FloatingContact.css'
 
 import {
   FaWhatsapp,
-  FaPhoneAlt,  
+  FaPhoneAlt,
   FaArrowUp,
   FaArrowDown
 } from 'react-icons/fa'
 
-export default function FloatingContact(){
+export default function FloatingContact() {
 
-  return (
-    <>
-    <div className="floating-contact">
+  const [isBottom,setIsBottom] =
+  useState(false)
 
-      <a
-        href="https://wa.me/919999999999"
-        target="_blank"
-        className="whatsapp-btn"
-      >
-        <FaWhatsapp />
-      </a>
+  useEffect(()=>{
 
-      <a
-        href="tel:+919999999999"
-        className="call-btn"
-      >
-        <FaPhoneAlt />
-      </a>
+    const handleScroll = ()=>{
 
-    </div>
-    <div className="page-nav">
+      const scrollTop =
+      window.scrollY
 
-  <button
-    onClick={()=>
+      const pageHeight =
+      document.documentElement.scrollHeight
+
+      const viewport =
+      window.innerHeight
+
+      setIsBottom(
+        scrollTop + viewport >
+        pageHeight - 300
+      )
+
+    }
+
+    window.addEventListener(
+      'scroll',
+      handleScroll
+    )
+
+    return ()=>window.removeEventListener(
+      'scroll',
+      handleScroll
+    )
+
+  },[])
+
+  const handlePageNav = ()=>{
+
+    if(isBottom){
+
       window.scrollTo({
         top:0,
         behavior:'smooth'
       })
-    }
-  >
-    <FaArrowUp />
-  </button>
 
-  <button
-    onClick={()=>
+    }else{
+
       window.scrollTo({
         top:
         document.body.scrollHeight,
         behavior:'smooth'
       })
-    }
-  >
-    <FaArrowDown />
-  </button>
 
-</div>
+    }
+
+  }
+
+  return (
+
+    <>
+
+      <div className="floating-contact">
+
+        <a
+          href="https://wa.me/919999999999"
+          target="_blank"
+          className="whatsapp-btn"
+        >
+          <FaWhatsapp />
+        </a>
+
+        <a
+          href="tel:+919999999999"
+          className="call-btn"
+        >
+          <FaPhoneAlt />
+        </a>
+
+      </div>
+
+      <button
+        className="page-nav-btn"
+        onClick={handlePageNav}
+      >
+
+        {
+          isBottom
+          ? <FaArrowUp/>
+          : <FaArrowDown/>
+        }
+
+      </button>
+
     </>
 
   )

@@ -8,7 +8,7 @@ import {
 } from 'react-icons/fa'
 
 import Link from 'next/link'
-
+import { usePathname } from 'next/navigation'
 import './Navbar.css'
 
 export default function Navbar() {
@@ -17,7 +17,7 @@ export default function Navbar() {
   = useState(false)
   const [scrolled,setScrolled]
   = useState(false)
-
+  const pathname = usePathname()
   useEffect(()=>{
 
     const handleScroll = ()=>{
@@ -83,33 +83,68 @@ export default function Navbar() {
         <ul className="nav-links">
 
           <li>
-            <Link href="/">
-              Home
-            </Link>
+              <Link
+                href="/"
+                className={
+                  pathname === '/'
+                    ? 'nav-active'
+                    : ''
+                }
+              >
+                Home
+              </Link>
           </li>
 
           <li>
-            <Link href="/tours">
+            <Link
+              href="/tours"
+              className={
+                pathname.startsWith('/tours')
+                  ? 'nav-active'
+                  : ''
+              }
+            >
               Tours
             </Link>
           </li>
 
           <li>
-            <Link href="/destinations">
+            <Link
+              href="/destinations"
+              className={
+                pathname.startsWith('/destinations')
+                  ? 'nav-active'
+                  : ''
+              }
+            >
               Destinations
             </Link>
           </li>
 
           <li>
-            <Link href="/about">
+            <Link
+              href="/about"
+              className={
+                pathname === '/about'
+                  ? 'nav-active'
+                  : ''
+              }
+            >
               About
             </Link>
           </li>
 
           <li>
-            <Link href="/contact">
-              Contact
-            </Link>
+          <Link
+            href="/contact"
+            className={
+              pathname === '/contact'
+                ? 'nav-active'
+                : ''
+            }
+          >
+            Contact
+          </Link>
           </li>
 
         </ul>
@@ -174,50 +209,64 @@ export default function Navbar() {
 
       </div>
 
-      <Link
-        href="/"
-        onClick={()=>
-          setMenuOpen(false)
-        }
-      >
-        Home
-      </Link>
+          <Link
+          href="/"
+          className={
+            pathname === '/'
+              ? 'mobile-active'
+              : ''
+          }
+          onClick={()=>setMenuOpen(false)}
+        >
+          Home
+        </Link>
 
-      <Link
-        href="/tours"
-        onClick={()=>
-          setMenuOpen(false)
-        }
-      >
-        Tours
-      </Link>
+        <Link
+          href="/tours"
+          className={
+            pathname.startsWith('/tours')
+              ? 'mobile-active'
+              : ''
+          }
+          onClick={()=>setMenuOpen(false)}
+        >
+          Tours
+        </Link>
 
-      <Link
-        href="/destinations"
-        onClick={()=>
-          setMenuOpen(false)
-        }
-      >
-        Destinations
-      </Link>
+        <Link
+          href="/destinationss"
+          className={
+            pathname.startsWith('/destinations')
+              ? 'mobile-active'
+              : ''
+          }
+          onClick={()=>setMenuOpen(false)}
+        >
+          Destinations
+        </Link>
 
-      <Link
-        href="/about"
-        onClick={()=>
-          setMenuOpen(false)
-        }
-      >
-        About
-      </Link>
-
-      <Link
-        href="/contact"
-        onClick={()=>
-          setMenuOpen(false)
-        }
-      >
-        Contact
-      </Link>
+          <Link
+            href="/about"
+            className={
+              pathname === '/about'
+                ? 'mobile-active'
+                : ''
+            }
+            onClick={()=>setMenuOpen(false)}
+          >
+            About
+          </Link>
+          <Link
+            href="/contact"
+            className={
+              pathname === '/contact'
+                ? 'mobile-active'
+                : ''
+            }
+            onClick={()=>setMenuOpen(false)}
+          >
+            Tours
+          </Link>
 
       <button className="mobile-login-btn">
         Login
