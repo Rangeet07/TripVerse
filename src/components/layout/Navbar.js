@@ -60,7 +60,17 @@ export default function Navbar() {
   return (
 
     <>
+          <div className="topbar">
 
+        <span>
+          📞 +91 9876543210
+        </span>
+
+        <span>
+          ✉ info@travelgo.com
+        </span>
+
+      </div>
     <nav
         className={
           scrolled
@@ -174,6 +184,7 @@ export default function Navbar() {
 
     </nav>
 
+  
     {/* OVERLAY */}
 
     <div

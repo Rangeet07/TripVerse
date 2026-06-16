@@ -39,7 +39,7 @@ export default async function Home(){
 
   return (
 
-    <main>
+    <main className="site-content">
 
       <Navbar />
 
