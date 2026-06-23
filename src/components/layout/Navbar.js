@@ -245,7 +245,7 @@ export default function Navbar() {
         </Link>
 
         <Link
-          href="/destinationss"
+          href="/destinations"
           className={
             pathname.startsWith('/destinations')
               ? 'mobile-active'
