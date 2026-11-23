@@ -6,7 +6,7 @@ export default function Loading() {
   return (
     <div className="page-loader">
       <div className="loader-logo">
-        Travel<span>Go</span>
+        Hill<span>Tourism</span>
       </div>
 
       <div className="loader-line"></div>
