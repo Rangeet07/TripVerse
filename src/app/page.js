@@ -8,6 +8,7 @@ import CTA from '@/components/home/CTA'
 import Footer from '@/components/layout/Footer'
 import FloatingContact from '@/components/shared/FloatingContact'
 import HomeDestinations from '@/components/home/HomeDestinations'
+import FreeQuotePopup from '@/components/home/FreeQuotePopup'
 
 import connectDB from '@/lib/mongodb'
 import Destination from '@/models/Destination'
@@ -31,6 +32,7 @@ async function getDestinations(){
   )
 
 }
+
 
 export default async function Home(){
 
@@ -58,6 +60,7 @@ export default async function Home(){
       <Footer />
 
       <FloatingContact />
+       <FreeQuotePopup  />
 
     </main>
 

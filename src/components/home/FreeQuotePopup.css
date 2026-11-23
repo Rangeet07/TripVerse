@@ -1,0 +1,314 @@
+
+.quote-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 11001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(10, 20, 30, 0.68);
+  backdrop-filter: blur(7px);
+  animation: quoteFadeIn 0.25s ease;
+}
+
+.quote-modal {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  width: 100%;
+  max-width: 850px;
+  max-height: min(90vh, 820px);
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: quoteRise 0.3s ease;
+}
+
+.quote-visual {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 18px;
+  padding: 38px;
+  color: white;
+  background:
+    linear-gradient(180deg, rgba(5, 30, 40, 0.12), rgba(5, 25, 35, 0.88)),
+    url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1000')
+    center / cover;
+}
+
+.quote-eyebrow,
+.quote-free-label {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.quote-visual h2 {
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+}
+
+.quote-visual p {
+  color: #e2e8f0;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.quote-free-label {
+  align-self: flex-start;
+  padding: 9px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.13);
+}
+
+.quote-form-panel {
+  padding: 32px;
+  min-width: 0;
+  overflow-y: auto;
+}
+
+.quote-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  background: #fff;
+  color: #334155;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.quote-close:hover {
+  background: #f1f5f9;
+  color: #00a98a;
+}
+
+.quote-kicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  color: #00a98a;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.quote-form-panel h3 {
+  margin: 0 38px 8px 0;
+  color: #0f172a;
+  font-size: 27px;
+  line-height: 1.2;
+  letter-spacing: -0.8px;
+}
+
+.quote-intro {
+  margin-bottom: 22px;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.quote-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 14px;
+}
+
+.quote-field label {
+  color: #334155;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.quote-field input,
+.quote-field select,
+.quote-field textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #dbe2ea;
+  border-radius: 10px;
+  outline: none;
+  background: #f8fafc;
+  color: #0f172a;
+  font: inherit;
+  font-size: 13px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.quote-field input,
+.quote-field select {
+  height: 43px;
+  padding: 0 12px;
+}
+
+.quote-field textarea {
+  padding: 12px;
+  resize: vertical;
+}
+
+.quote-field input:focus,
+.quote-field select:focus,
+.quote-field textarea:focus {
+  border-color: #00b894;
+  box-shadow: 0 0 0 3px rgba(0, 184, 148, 0.12);
+  background: #fff;
+}
+
+.quote-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.quote-submit {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 4px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #00b894, #00c9b7);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 184, 148, 0.22);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.quote-submit:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(0, 184, 148, 0.3);
+}
+
+.quote-submit:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.quote-privacy {
+  margin-top: 12px;
+  color: #94a3b8;
+  font-size: 10px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.quote-error {
+  margin: 0 0 12px;
+  color: #dc2626;
+  font-size: 12px;
+}
+
+.quote-success {
+  display: flex;
+  min-height: 330px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.quote-success > svg {
+  margin-bottom: 18px;
+  color: #00b894;
+  font-size: 48px;
+}
+
+.quote-success h3 {
+  margin: 0 0 12px;
+}
+
+.quote-success p {
+  margin-bottom: 24px;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+@keyframes quoteFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes quoteRise {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@media (max-width: 640px) {
+  .quote-backdrop {
+    padding: 12px;
+  }
+
+  .quote-modal {
+    display: block;
+    max-width: 430px;
+    max-height: 92dvh;
+    border-radius: 19px;
+  }
+
+  .quote-visual {
+    min-height: 140px;
+    gap: 8px;
+    padding: 22px 22px 18px;
+    padding-right: 52px;
+  }
+
+  .quote-visual h2 {
+    max-width: 290px;
+    font-size: 24px;
+    letter-spacing: -0.7px;
+  }
+
+  .quote-visual p {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .quote-eyebrow,
+  .quote-free-label {
+    font-size: 9px;
+  }
+
+  .quote-form-panel {
+    padding: 20px;
+    max-height: calc(92dvh - 140px);
+    overflow-y: auto;
+  }
+
+  .quote-form-panel h3 {
+    font-size: 23px;
+  }
+
+  .quote-intro {
+    margin-bottom: 16px;
+  }
+
+  .quote-field {
+    margin-bottom: 11px;
+  }
+
+  .quote-grid {
+    gap: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quote-backdrop,
+  .quote-modal {
+    animation: none;
+  }
+}
