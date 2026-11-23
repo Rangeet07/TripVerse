@@ -17,7 +17,7 @@ export default function Footer() {
         <div className="footer-section">
 
           <h2>
-            Travel<span>Go</span>
+            Hill<span>Tourism</span>
           </h2>
 
           <p>
@@ -108,8 +108,8 @@ export default function Footer() {
 
           <h3>Contact</h3>
 
-          <p>Email: info@travelgo.com</p>
-          <p>Phone: +91 9876543210</p>
+          <p>Email: hilltourismslg@gmail.com</p>
+          <p>Phone: +91 9933451775</p>
           <p>India</p>
 
         </div>
@@ -117,7 +117,7 @@ export default function Footer() {
       </div>
 
       <div className="footer-bottom">
-        © 2026 TravelGo. All rights reserved.
+        © 2026 HillTourism. All rights reserved.
       </div>
 
     </footer>

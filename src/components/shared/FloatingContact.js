@@ -75,7 +75,7 @@ export default function FloatingContact() {
       <div className="floating-contact">
 
         <a
-          href="https://wa.me/919999999999"
+          href="https://wa.me/919933451775"
           target="_blank"
           className="whatsapp-btn"
         >
@@ -83,7 +83,7 @@ export default function FloatingContact() {
         </a>
 
         <a
-          href="tel:+919999999999"
+          href="tel:+919933451775"
           className="call-btn"
         >
           <FaPhoneAlt />

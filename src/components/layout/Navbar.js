@@ -63,11 +63,11 @@ export default function Navbar() {
           <div className="topbar">
 
         <span>
-          📞 +91 9876543210
+          📞 +919933451775
         </span>
 
         <span>
-          ✉ info@travelgo.com
+          ✉ hilltourismslg@gmail.com
         </span>
 
       </div>
@@ -85,7 +85,7 @@ export default function Navbar() {
           href="/"
           className="logo"
         >
-          Travel<span>Go</span>
+          Hill<span>Tourism</span>
         </Link>
 
         {/* DESKTOP LINKS */}
@@ -211,7 +211,7 @@ export default function Navbar() {
       <div className="mobile-header">
 
         <h2>
-          Travel<span>Go</span>
+          Hill<span>Tourism</span>
         </h2>
 
         <p>
