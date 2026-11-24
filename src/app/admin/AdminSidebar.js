@@ -82,6 +82,11 @@ const pathname = usePathname()
             Bookings
           </Link>
 
+          <Link href="/admin/freequotes" className={ pathname === '/admin/bookings' ? 'active' : ''}>
+            <FaClipboardList />
+            Free Quotes
+          </Link>
+
           <Link href="/admin/add-tour" className={ pathname === '/admin/add-tour' ? 'active' : ''}>
             <FaPlus />
             Add Tour

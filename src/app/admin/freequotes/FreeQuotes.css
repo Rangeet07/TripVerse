@@ -1,0 +1,350 @@
+
+.freequotes-page {
+  width: 100%;
+  color: #0f172a;
+}
+
+.freequotes-subtitle {
+  margin-top: 8px;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.freequotes-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  padding: 14px 20px;
+  background: #ecfdf5;
+  border: 1px solid #d1fae5;
+  border-radius: 16px;
+}
+
+.freequotes-count span {
+  font-size: 28px;
+  font-weight: 800;
+  color: #059669;
+}
+
+.freequotes-count small {
+  margin-top: 4px;
+  color: #047857;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.freequotes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.freequote-card {
+  min-width: 0;
+  padding: 24px;
+  background: #fff;
+  border: 1px solid #e8edf2;
+  border-radius: 20px;
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.04);
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.freequote-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+}
+
+.freequote-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.freequote-customer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.freequote-avatar {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: #ccfbf1;
+  color: #047857;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.freequote-customer h3 {
+  overflow-wrap: anywhere;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.freequote-date {
+  display: block;
+  margin-top: 5px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+.freequote-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 11px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status-new {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.status-contacted {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.status-quoted {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
+.status-converted {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.status-closed {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.freequote-destination {
+  padding: 17px;
+  margin-bottom: 20px;
+  border-radius: 14px;
+  background: #f0fdfa;
+}
+
+.freequote-label {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.freequote-destination h4 {
+  margin-top: 8px;
+  color: #047857;
+  font-size: 19px;
+  overflow-wrap: anywhere;
+}
+
+.freequote-details {
+  display: grid;
+  gap: 15px;
+}
+
+.freequote-details p {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+  line-height: 1.5;
+}
+
+.freequote-details strong,
+.freequote-message strong {
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.freequote-details span,
+.freequote-details a {
+  color: #1e293b;
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.freequote-details a:hover {
+  color: #059669;
+}
+
+.freequote-message {
+  padding: 16px;
+  margin-top: 20px;
+  background: #f8fafc;
+  border-radius: 12px;
+}
+
+.freequote-message p {
+  margin-top: 9px;
+  color: #475569;
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.freequote-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-top: 18px;
+  margin-top: 22px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.freequote-footer > span {
+  color: #94a3b8;
+  font-size: 10px;
+}
+
+.freequote-contact {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #059669;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  transition: background 0.2s ease;
+}
+
+.freequote-contact:hover {
+  background: #047857;
+}
+
+.freequotes-empty {
+  padding: 65px 24px;
+  text-align: center;
+  background: #fff;
+  border: 1px solid #e8edf2;
+  border-radius: 20px;
+}
+
+.freequotes-empty-icon {
+  margin-bottom: 18px;
+  font-size: 42px;
+}
+
+.freequotes-empty h2 {
+  font-size: 22px;
+}
+
+.freequotes-empty p {
+  max-width: 430px;
+  margin: 12px auto 0;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.freequote-status-control {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  padding-top: 16px;
+  margin-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.freequote-status-control label {
+  width: 100%;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.freequote-status-control select {
+  max-width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #dbe3eb;
+  border-radius: 10px;
+  background: #fff;
+  color: #0f172a;
+  font-size: 13px;
+}
+
+.freequote-status-control select:focus {
+  outline: 2px solid #a7f3d0;
+  border-color: #059669;
+}
+
+.freequote-status-control > span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.freequote-status-control p {
+  width: 100%;
+  color: #dc2626;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .freequotes-page .admin-page-header {
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .freequotes-page .admin-page-header h1 {
+    font-size: 23px;
+    line-height: 1.3;
+  }
+
+  .freequotes-count {
+    min-width: 82px;
+    padding: 10px;
+  }
+
+  .freequotes-count span {
+    font-size: 23px;
+  }
+
+  .freequotes-count small {
+    font-size: 10px;
+    text-align: center;
+  }
+
+  .freequotes-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .freequote-card {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .freequote-footer {
+    align-items: flex-start;
+  }
+}
