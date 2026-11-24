@@ -13,16 +13,16 @@
 }
 
 .primary{
-  background:#00b894;
+  background:#9A3412;
   color:white;
 }
 
 .primary:hover{
-  background:#019875;
+  background:#D97706;
 }
 
 .secondary{
-  background:white;
+  background:#FFFBF5;
   color:black;
 }
 
