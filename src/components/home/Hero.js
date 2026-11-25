@@ -149,7 +149,7 @@ export default function Hero() {
 
                 <button className="search-btn" type="submit" aria-label="Search tours">
                   <FaSearch />
-                  <span>Search</span>
+                  
                 </button>
               </div>
 

@@ -279,10 +279,7 @@ export default function Navbar() {
             Tours
           </Link>
 
-      <button className="mobile-login-btn">
-        Login
-      </button>
-
+  
     </aside>
 
     </>

@@ -1,123 +1,183 @@
+
+import Link from 'next/link'
 import {
   FaFacebookF,
   FaInstagram,
   FaTwitter,
-  FaYoutube
+  FaYoutube,
+  FaEnvelope,
+  FaPhoneAlt,
+  FaMapMarkerAlt,
+  FaArrowRight,
+  FaPaperPlane
 } from 'react-icons/fa'
-import Link from 'next/link'
+
 import './Footer.css'
 
 export default function Footer() {
-
   return (
     <footer className="footer">
 
       <div className="footer-container">
 
-        <div className="footer-section">
+        {/* Brand */}
+        <div className="footer-section footer-brand">
 
-          <h2>
+          <Link href="/" className="footer-logo">
             Hill<span>Tourism</span>
-          </h2>
+          </Link>
 
-          <p>
-            Explore the world's best destinations
-            with premium travel experiences.
+          <p className="footer-brand-description">
+            Your trusted travel partner for tour packages,
+            hotel bookings, flights, car rentals and bus tickets.
+            Let us help make your next journey memorable.
           </p>
 
-          <div className="social-icons">
+          <div className="footer-socials">
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+            >
+              <FaFacebookF />
+            </a>
 
-            <FaFacebookF />
-            <FaInstagram />
-            <FaTwitter />
-            <FaYoutube />
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+            >
+              <FaInstagram />
+            </a>
 
+            <a
+              href="https://www.twitter.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter"
+            >
+              <FaTwitter />
+            </a>
+
+            <a
+              href="https://www.youtube.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+            >
+              <FaYoutube />
+            </a>
           </div>
 
         </div>
 
-        <div className="footer-section newsletter">
-
-          <span className="footer-tag">
-            Travel Updates
-          </span>
-
-          <h3>
-            Join Our Newsletter
-          </h3>
-
-          <p>
-            Get travel inspiration, deals and destination updates.
-          </p>
-
-          <form className="footer-newsletter">
-
-            <input
-              type="email"
-              placeholder="Your email"
-            />
-
-            <button type="submit">
-              Subscribe
-            </button>
-
-          </form>
-
-        </div>
-
-
+        {/* Quick Links */}
         <div className="footer-section">
 
-          <h3>Quick Links</h3>
+          <h3 className="footer-heading">Quick Links</h3>
 
-          <ul>
-        <li>
-    <Link href="/">
-      Home
-    </Link>
-  </li>
-
-  <li>
-    <Link href="/tours">
-      Tours
-    </Link>
-  </li>
-
-  <li>
-    <Link href="/destinations">
-      Destinations
-    </Link>
-  </li>
-
-  <li>
-    <Link href="/about">
-      About
-    </Link>
-  </li>
-
-  <li>
-    <Link href="/contact">
-      Contact
-    </Link>
-  </li>
+          <ul className="footer-links">
+            <li><Link href="/">Home</Link></li>
+            <li><Link href="/tours">Tour Packages</Link></li>
+            <li><Link href="/destinations">Destinations</Link></li>
+            <li><Link href="/about">About Us</Link></li>
+            <li><Link href="/contact">Contact Us</Link></li>
           </ul>
 
         </div>
 
+        {/* Services */}
         <div className="footer-section">
 
-          <h3>Contact</h3>
+          <h3 className="footer-heading">Our Services</h3>
 
-          <p>Email: hilltourismslg@gmail.com</p>
-          <p>Phone: +91 9933451775</p>
-          <p>India</p>
+          <ul className="footer-links">
+            <li><Link href="/contact">Hotel Booking</Link></li>
+            <li><Link href="/tours">Package Tours</Link></li>
+            <li><Link href="/contact">Flight Tickets</Link></li>
+            <li><Link href="/contact">Car Rental</Link></li>
+            <li><Link href="/contact">Bus Tickets</Link></li>
+          </ul>
+
+        </div>
+
+        {/* Contact */}
+        <div className="footer-section footer-contact">
+
+          <h3 className="footer-heading">Get in Touch</h3>
+
+          <p className="footer-contact-intro">
+            Need help planning your next trip? Get in touch
+            with our team.
+          </p>
+
+          <a
+            href="tel:+919933451775"
+            className="footer-contact-item"
+          >
+            <span className="footer-contact-icon">
+              <FaPhoneAlt />
+            </span>
+            <span>+91 99334 51775</span>
+          </a>
+
+          <a
+            href="mailto:hilltourismslg@gmail.com"
+            className="footer-contact-item"
+          >
+            <span className="footer-contact-icon">
+              <FaEnvelope />
+            </span>
+            <span>hilltourismslg@gmail.com</span>
+          </a>
+
+          <div className="footer-contact-item">
+            <span className="footer-contact-icon">
+              <FaMapMarkerAlt />
+            </span>
+            <span>Siliguri, West Bengal, India</span>
+          </div>
+
+          <Link href="/contact" className="footer-contact-cta">
+            Contact Our Team <FaArrowRight />
+          </Link>
 
         </div>
 
       </div>
 
+      {/* Newsletter strip */}
+      <div className="footer-newsletter-strip">
+        <div className="footer-newsletter-copy">
+          <span className="footer-newsletter-icon">
+            <FaPaperPlane />
+          </span>
+
+          <div>
+            <h3>Travel inspiration, delivered.</h3>
+            <p>
+              Stay connected for travel ideas and destination updates.
+            </p>
+          </div>
+        </div>
+
+        <Link href="/contact" className="footer-newsletter-link">
+          Plan Your Trip <FaArrowRight />
+        </Link>
+      </div>
+
+      {/* Bottom bar */}
       <div className="footer-bottom">
-        © 2026 HillTourism. All rights reserved.
+        <p>
+          © {new Date().getFullYear()} Hill Tourism.
+          All rights reserved.
+        </p>
+
+        <Link href="/tours" className="footer-bottom-link">
+          Explore Tours <FaArrowRight />
+        </Link>
       </div>
 
     </footer>

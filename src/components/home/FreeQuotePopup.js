@@ -4,6 +4,7 @@
 import { useEffect, useState } from 'react'
 import { FaTimes, FaMapMarkerAlt, FaCheckCircle } from 'react-icons/fa'
 import './FreeQuotePopup.css'
+import Button from '../shared/Button'
 
 export default function FreeQuotePopup({ destinations = [] }) {
   const [isOpen, setIsOpen] = useState(false)
