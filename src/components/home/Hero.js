@@ -196,7 +196,7 @@ export default function Hero() {
 
             <div className="hero-buttons">
               <Link href="/tours" className="hero-primary-link">
-                <Button text="Explore Packages" />
+                <Button text="Explore Packages" type='secondary'/>
               </Link>
 
               <Link href="/contact" className="hero-secondary-link">
