@@ -1,73 +1,321 @@
-.testimonials{
-  padding:90px 5%;
-  background:#fff;
+
+.google-reviews-section {
+  padding: 80px 5%;
+  background: #f8fafc;
 }
 
-.testimonial-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:30px;
+.google-reviews-heading {
+  max-width: 650px;
+  margin: 0 auto 42px;
+  text-align: center;
 }
 
-.testimonial-card{
-  background:#f8fafc;
-
-  padding:35px;
-
-  border-radius:20px;
-
-  box-shadow:0 5px 20px rgba(0,0,0,0.05);
-
-  transition:0.3s;
+.google-reviews-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 9px 15px;
+  margin-bottom: 17px;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  background: #fff;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 600;
 }
 
-.testimonial-card:hover{
-  transform:translateY(-8px);
+.google-logo,
+.google-reviews-eyebrow svg {
+  color: #4285f4;
 }
 
-.quote-icon{
-  font-size:30px;
-  color:#00b894;
-
-  margin-bottom:20px;
+.google-reviews-heading .section-title {
+  margin-bottom: 14px;
+  color: #102a43;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -1px;
 }
 
-.testimonial-card p{
-  line-height:1.8;
-  color:#555;
-
-  margin-bottom:25px;
+.google-reviews-heading .section-subtitle {
+  max-width: 560px;
+  margin: 0 auto;
+  color: #64748b;
+  font-size: 15px;
+  line-height: 1.8;
 }
 
-.stars{
-  display:flex;
-  gap:5px;
-
-  color:#facc15;
-
-  margin-bottom:15px;
+.google-reviews-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  align-items: stretch;
+  gap: 25px;
+  max-width: 1150px;
+  margin: 0 auto;
 }
 
-.testimonial-card h4{
-  font-size:18px;
+.google-reviews-card,
+.google-map-card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.05);
 }
 
-/* TABLET */
+.google-reviews-card {
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
 
-@media(min-width:768px){
+.google-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
 
-  .testimonial-grid{
-    grid-template-columns:repeat(2,1fr);
+.google-brand .google-logo {
+  flex-shrink: 0;
+  font-size: 36px;
+}
+
+.google-brand h3 {
+  margin: 0 0 5px;
+  color: #102a43;
+  font-size: 21px;
+  font-weight: 750;
+}
+
+.google-brand span {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.google-review-divider {
+  height: 1px;
+  margin: 24px 0;
+  background: #e2e8f0;
+}
+
+.google-review-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 23px;
+}
+
+.google-review-icon {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 43px;
+  height: 43px;
+  border-radius: 13px;
+  background: #fff7ed;
+  color: #d97706;
+  font-size: 17px;
+}
+
+.google-review-message h4 {
+  margin: 2px 0 7px;
+  color: #102a43;
+  font-size: 15px;
+}
+
+.google-review-message p {
+  margin: 0;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.google-review-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  width: 100%;
+  min-height: 49px;
+  margin-top: auto;
+  padding: 12px 15px;
+  border-radius: 12px;
+  background: #102a43;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 650;
+  text-align: center;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.google-review-button:hover {
+  background: #1e496b;
+}
+
+.google-review-button svg:first-child {
+  color: #fff;
+}
+
+.google-review-button svg:last-child {
+  font-size: 11px;
+}
+
+.google-review-note {
+  margin: 12px 0 0;
+  color: #94a3b8;
+  font-size: 11px;
+  text-align: center;
+}
+
+.google-map-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.google-map-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 22px 24px;
+}
+
+.google-map-header h3 {
+  margin: 0 0 8px;
+  color: #102a43;
+  font-size: 18px;
+}
+
+.google-map-header p {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 0;
+  color: #64748b;
+  font-size: 12px;
+}
+
+.google-map-header p svg {
+  color: #d97706;
+}
+
+.google-map-external {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: #f1f5f9;
+  color: #102a43;
+  text-decoration: none;
+}
+
+.google-map-frame {
+  position: relative;
+  flex: 1;
+  min-height: 340px;
+  background: #e2e8f0;
+}
+
+.google-map-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  border: 0;
+}
+
+.google-map-directions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 17px;
+  color: #102a43;
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.google-map-directions svg {
+  color: #d97706;
+}
+
+.google-map-directions svg:last-child {
+  margin-left: 3px;
+  color: #64748b;
+  font-size: 11px;
+}
+
+@media (max-width: 900px) {
+  .google-reviews-layout {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
   }
 
-}
-
-/* DESKTOP */
-
-@media(min-width:1024px){
-
-  .testimonial-grid{
-    grid-template-columns:repeat(3,1fr);
+  .google-reviews-card {
+    padding: 23px;
   }
 
+  .google-map-frame,
+  .google-map-frame iframe {
+    min-height: 380px;
+  }
+}
+
+@media (max-width: 650px) {
+  .google-reviews-section {
+    padding: 55px 17px;
+  }
+
+  .google-reviews-heading {
+    margin-bottom: 28px;
+  }
+
+  .google-reviews-heading .section-title {
+    font-size: 29px;
+    letter-spacing: -0.7px;
+  }
+
+  .google-reviews-heading .section-subtitle {
+    font-size: 13px;
+  }
+
+  .google-reviews-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .google-reviews-card {
+    padding: 23px;
+    border-radius: 18px;
+  }
+
+  .google-brand h3 {
+    font-size: 19px;
+  }
+
+  .google-map-card {
+    border-radius: 18px;
+  }
+
+  .google-map-header {
+    padding: 19px;
+  }
+
+  .google-map-header h3 {
+    font-size: 16px;
+  }
+
+  .google-map-frame,
+  .google-map-frame iframe {
+    min-height: 300px;
+  }
 }
