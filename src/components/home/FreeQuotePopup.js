@@ -152,8 +152,8 @@ export default function FreeQuotePopup({ destinations = [] }) {
               <FaCheckCircle />
               <h3>Request received!</h3>
               <p>
-                Thank you for choosing TravelGo. Our team will review
-                your travel enquiry and contact you.
+Thank you for choosing Hill Tourism. Our team will review
+your travel enquiry and contact you.
               </p>
               <button
                 type="button"

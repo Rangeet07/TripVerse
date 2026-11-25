@@ -18,7 +18,8 @@ import {
   FaTree,
   FaWater,
   FaSun,
-  FaHotel
+  FaHotel,
+  FaArrowRight 
 } from 'react-icons/fa'
 
 import 'swiper/css'
@@ -132,6 +133,10 @@ destinations?.slice(1) || []
               ))}
 
             </div>
+
+            <span className="featured-explore">
+            Explore destination <FaArrowRight />
+          </span>
 
             </div>
 
