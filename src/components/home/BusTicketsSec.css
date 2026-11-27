@@ -1,0 +1,219 @@
+
+.bus-home-section {
+  padding: 76px 20px;
+  background: #fffbf5;
+  color: #292524;
+}
+
+.bus-home-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.bus-home-heading {
+  max-width: 720px;
+  margin: 0 auto 36px;
+  text-align: center;
+}
+
+.bus-eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #9a3412;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.bus-home-heading h2 {
+  margin: 0 0 14px;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.bus-home-heading h2 span {
+  color: #9a3412;
+}
+
+.bus-home-heading > p {
+  max-width: 640px;
+  margin: 0 auto;
+  color: #78716c;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.bus-route-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.bus-route-card {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  min-width: 0;
+  padding: 23px 19px;
+  background: #fff;
+  border: 1px solid #f0e4d8;
+  border-radius: 15px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.bus-route-card:hover {
+  border-color: #d97706;
+  transform: translateY(-3px);
+}
+
+.bus-route-icon {
+  display: grid;
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  color: #9a3412;
+  background: #fff0df;
+  border-radius: 12px;
+}
+
+.bus-route-info {
+  min-width: 0;
+}
+
+.bus-route-origin {
+  color: #a8a29e;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.1px;
+}
+
+.bus-route-info h3 {
+  margin: 5px 0 6px;
+  color: #292524;
+  font-size: 19px;
+}
+
+.bus-route-info p {
+  margin: 0;
+  color: #78716c;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.bus-route-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 5px 8px;
+  color: #9a3412;
+  background: #fff0df;
+  border-radius: 5px;
+  font-size: 9px;
+  font-weight: 800;
+}
+
+.bus-home-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 30px;
+  padding: 27px 30px;
+  background: #fff1e4;
+  border: 1px solid #fed7aa;
+  border-radius: 16px;
+}
+
+.bus-home-bottom h3 {
+  margin: 0 0 7px;
+  font-size: 20px;
+}
+
+.bus-home-bottom p {
+  margin: 0;
+  color: #78716c;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.bus-primary-btn {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 13px 21px;
+  color: #fff;
+  background: #9a3412;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.bus-primary-btn:hover {
+  background: #d97706;
+}
+
+@media (max-width: 850px) {
+  .bus-route-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bus-home-bottom {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 540px) {
+  .bus-home-section {
+    padding: 52px 16px;
+  }
+
+  .bus-home-heading {
+    margin-bottom: 26px;
+  }
+
+  .bus-home-heading h2 {
+    letter-spacing: -0.6px;
+  }
+
+  .bus-home-heading > p {
+    font-size: 14px;
+  }
+
+  .bus-route-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .bus-route-card {
+    padding: 19px 16px;
+  }
+
+  .bus-home-bottom {
+    padding: 23px 19px;
+  }
+
+  .bus-primary-btn {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bus-route-card,
+  .bus-primary-btn {
+    transition: none;
+  }
+
+  .bus-route-card:hover {
+    transform: none;
+  }
+}

@@ -13,6 +13,7 @@ import FreeQuotePopup from '@/components/home/FreeQuotePopup'
 import connectDB from '@/lib/mongodb'
 import Destination from '@/models/Destination'
 import FAQ from '@/components/home/FAQ'
+import BusTicketsSection from '@/components/home/BusTicketsSec'
 
 async function getDestinations(){
 
@@ -47,7 +48,7 @@ export default async function Home(){
       <Navbar />
 
       <Hero />
-
+      <BusTicketsSection/>
       <HomeDestinations
         destinations={destinations}
       />
